@@ -7,7 +7,7 @@ use refaltor\ui\elements\Element;
 class Root implements \JsonSerializable
 {
     private array $root = [];
-    private array $elements = [];
+    public array $elements = [];
     public string $namespace;
 
     public function __construct(string $namespace) {
@@ -41,7 +41,18 @@ class Root implements \JsonSerializable
         $root = ['namespace' => $this->namespace];
 
         foreach ($this->elements as $element) {
-            $root = array_merge($root, $element->jsonSerialize());
+            if (!is_array($element)) {
+                $root = array_merge($root, $element->jsonSerialize());
+            }
+        }
+
+        foreach ($this->elements as $name => $element) {
+            if ($name === "template_button_easy_ui_builder@common_buttons.light_text_button") {
+                $root['template_button_easy_ui_builder@common_buttons.light_text_button'] = $element;
+            }
+            if ($name === "template_button_easy_ui_builder_stack_panel") {
+                $root['template_button_easy_ui_builder_stack_panel'] = $element;
+            }
         }
 
         return $root;

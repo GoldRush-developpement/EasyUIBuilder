@@ -26,6 +26,7 @@ class StackPanel extends Panel implements \JsonSerializable
 
         $data =  parent::jsonSerialize();
         $data[$name]['orientation'] = $this->orientation;
+        $data[$name]['type'] = 'stack_panel';
         return $data;
     }
 

@@ -2,6 +2,8 @@
 
 namespace refaltor\ui\elements;
 
+use refaltor\ui\builders\Root;
+
 class Button extends Element implements  \JsonSerializable
 {
 
@@ -11,20 +13,27 @@ class Button extends Element implements  \JsonSerializable
     private string $hoverButtonTexture = "";
     private string $pressedButtonTexture = "";
     private string $lockedButtonTexture = "";
+    private string $titleConditionVisible = "";
 
 
 
-    public function __construct(string $name)
+    public function __construct(string $name, Root $root)
     {
         $this->name = $name;
 
-        parent::__construct($name, "common_buttons.light_text_button");
+        parent::__construct($name, $root->namespace . ".template_button_easy_ui_builder_stack_panel");
     }
 
 
 
-    public static function create(string $name): self {
-        return new self($name);
+    public static function create(string $name, Root $root): self {
+        return new self($name, $root);
+    }
+
+
+    public function setVisibleIfTitle(string $buttonText): self {
+        $this->titleConditionVisible = $buttonText;
+        return $this;
     }
 
 
@@ -45,49 +54,22 @@ class Button extends Element implements  \JsonSerializable
             '$button_text_binding_type' => 'collection',
             '$button_state_panel|default' => "common_buttons.new_ui_button_panel",
             '$button_text_grid_collection_name' => 'form_buttons',
-            'bindings' => [
-                [
-                    'binding_type' => 'collection_details',
-                    'binding_collection_name' => 'form_buttons'
-                ],
-                [
-                    'binding_name' => '#form_button_text',
-                    'binding_type' => 'collection',
-                    'binding_collection_name' => 'form_buttons'
-                ],
-                [
-                    'binding_type' => 'view',
-                    'source_property_name' => '$condition',
-                    'target_property_name' => '#visible'
-                ]
-            ]
-
-
+            '$default_button_texture' => $this->defaultButtonTexture,
+            '$hover_button_texture' => $this->hoverButtonTexture,
+            '$pressed_button_texture' => $this->pressedButtonTexture,
+            '$locked_button_texture' => $this->lockedButtonTexture,
+            '$focus_enabled' => false,
+            '$focus_wrap_enabled' => false,
+            '$condition' => "(#form_button_text = ".$this->titleConditionVisible.")"
         ]];
 
         foreach ($propertiesExtra as $propertyName => $property) {
-            $element[$name][$propertyName] = $property;
+            if ($propertyName === "size") {
+                $element[$name]['$size'] = $property;
+            } else $element[$name][$propertyName] = $property;
         }
 
 
-        $element[$name]["controls"] = [
-            'default@$default_state_panel' => [
-                '$new_ui_button_texture' => $this->defaultButtonTexture,
-                '$default_state' => true
-            ],
-            'hover@$default_state_panel' => [
-                '$new_ui_button_texture' => $this->hoverButtonTexture,
-                '$hover_state' => true
-            ],
-            'pressed@$default_state_panel' => [
-                '$new_ui_button_texture' => $this->pressedButtonTexture,
-                '$pressed_state' => true
-            ],
-            'locked@$default_state_panel' => [
-                '$new_ui_button_texture' => $this->lockedButtonTexture,
-                '$locked_state' => true
-            ]
-        ];
 
         foreach ($controls as $control) {
             $element[$name]["controls"][] = $control;

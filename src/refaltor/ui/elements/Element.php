@@ -2,6 +2,8 @@
 
 namespace refaltor\ui\elements;
 
+use refaltor\ui\builders\Root;
+
 class Element implements \JsonSerializable
 {
     public array $properties = [];
@@ -45,6 +47,56 @@ class Element implements \JsonSerializable
 
     public function setSizePercentage(int $percentageX, int $percentageZ): self {
         $this->properties['size'] = ["$percentageX%", "$percentageZ%"];
+        return $this;
+    }
+
+    public function enableFactoryButton(Root $root): self {
+        $root->elements["template_button_easy_ui_builder@common_buttons.light_text_button"] = [
+            "pressed_button_name" => "button.form_button_click",
+            '$size|default' => ['100%', '100%'],
+            "size" => '$size',
+            '$condition|default' => true,
+            '$button_text' => '',
+            "button_text" => '$button_text',
+            "button_text_binding_type" => "collection",
+            "button_text_grid_collection_name" => "form_buttons",
+            "button_text_max_size" => [ "100%", 20 ],
+            '$border_visible' => false,
+            "bindings" => [
+                [
+                    "binding_type" => "collection_details",
+                    "binding_collection_name" => "form_buttons"
+                ],
+                [
+                    "binding_name" => "#form_button_text",
+                    "binding_type" => "collection",
+                    "binding_collection_name" => "form_buttons"
+                ],
+                [
+                    "binding_type" => "view",
+                    "source_property_name" => '$condition',
+                    "target_property_name" => "#visible"
+                ]
+            ]
+        ];
+
+        $root->elements['template_button_easy_ui_builder_stack_panel'] = [
+            "type" => "stack_panel",
+            "orientation" => "horizontal",
+            "factory" => [
+                'name' => "buttons",
+                'control_name' => $root->namespace . ".template_button_easy_ui_builder"
+            ],
+            "collection_name" => "form_buttons",
+            "bindings" => [
+                [
+                    "binding_name" => "#form_button_length",
+                    "binding_name_override" => "#collection_length"
+                ]
+            ]
+        ];
+
+
         return $this;
     }
 
