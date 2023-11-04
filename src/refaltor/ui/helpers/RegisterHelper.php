@@ -10,7 +10,7 @@ class RegisterHelper
     public function register(RootBuild $rootBuild): void {
         $namespace = $rootBuild->getNamespace();
         $pathToUiFile = $rootBuild->getPathName();
-        $root = Root::create();
+        $root = $rootBuild->root();
         $root->setNamespace($namespace);
         $root->generateAndSaveJson($pathToUiFile);
     }
