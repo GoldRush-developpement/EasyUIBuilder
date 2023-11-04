@@ -3,6 +3,8 @@
 
 EasyUIBuilder is a PHP library that simplifies the process of creating user interfaces (UIs) for your applications. With EasyUIBuilder, you can quickly and efficiently build UI elements and generate JSON UI files. This README provides an overview of how to use EasyUIBuilder.
 
+wiki : https://github.com/GoldRush-developpement/EasyUIBuilder/wiki
+
 ## Installation
 
 To get started with EasyUIBuilder, you need to include the library in your PHP project. You can do this using Composer:
