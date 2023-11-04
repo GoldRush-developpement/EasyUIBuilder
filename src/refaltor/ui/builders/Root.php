@@ -14,7 +14,7 @@ class Root implements \JsonSerializable
         $this->setNamespace($namespace);
     }
 
-    public static function create(string $namespace): self {
+    public static function create(string $namespace = ""): self {
         return new self($namespace);
     }
 
