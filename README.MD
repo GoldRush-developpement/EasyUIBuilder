@@ -6,7 +6,7 @@ EasyUIBuilder is a PHP library that simplifies the process of creating user inte
 wiki : https://github.com/GoldRush-developpement/EasyUIBuilder/wiki
 
 ## Installation
-
+`PHP VERSION: 8.0 or >=`
 To get started with EasyUIBuilder, you need to include the library in your PHP project. You can do this using Composer:
 
 ```bash
