@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Test UI Pack",
+    "name": "EasyUIBuilder Pack",
+    "uuid": "c4796ed2-81ae-83a1-97ea-b5ed0435855e",
+    "version": [2, 0, 0],
+    "min_engine_version": [ 1, 18, 0 ]
+  },
+  "modules": [
+    {
+      "description": "Test UI Pack",
+      "type": "resources",
+      "uuid": "481cf806-5e16-49fc-817f-f55494440ad1",
+      "version": [1, 0, 0]
+    }
+  ]
+}
