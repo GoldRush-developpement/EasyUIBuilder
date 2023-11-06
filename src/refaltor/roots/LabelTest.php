@@ -4,7 +4,6 @@ namespace refaltor\roots;
 
 use refaltor\ui\builders\Root;
 use refaltor\ui\builders\RootBuild;
-use refaltor\ui\colors\BasicColor;
 use refaltor\ui\elements\Label;
 
 class LabelTest implements RootBuild
@@ -18,7 +17,8 @@ class LabelTest implements RootBuild
 
         # create my element
         $label = Label::create("label_test", "Hello EasyUIBuilder !");
-
+        $label->setFontSize(Label::FONT_EXTRA_LARGE);
+        $label->setShadow();
 
         # add element in root instance
         $root->addElement($label);
