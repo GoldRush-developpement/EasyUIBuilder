@@ -17,11 +17,7 @@ class LabelTest implements RootBuild
 
 
         # create my element
-        $label = Label::create("label_test", "Hello EasyUIBuilder !")
-            ->setFontType(Label::TYPE_MINECRAFT_TEN)
-            ->setFontSize(Label::FONT_EXTRA_LARGE)
-            ->setColor(BasicColor::blue())
-            ->setShadow();
+        $label = Label::create("label_test", "Hello EasyUIBuilder !");
 
 
         # add element in root instance
@@ -31,13 +27,27 @@ class LabelTest implements RootBuild
         return $root;
     }
 
+    # namespace and .json file name
     public function getNamespace(): string
     {
         return "ui_test";
     }
 
+
+    # put the getPathName in your texture pack
+    # for the script to automatically generate the ui and
+    # the condition for the visible UI
+    # ---
+    # example put in your developpement_resources_pack in .com_mojang :)
     public function getPathName(): string
     {
-        return "./resources/test_ui.json";
+        return "./resources/pack_example/";
+    }
+
+    # title condition is very important because
+    # this is the title that makes your ui will become visible
+    public function titleCondition(): string
+    {
+        return "LABEL_TEST";
     }
 }

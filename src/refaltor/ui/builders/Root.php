@@ -9,9 +9,15 @@ class Root implements \JsonSerializable
     private array $root = [];
     public array $elements = [];
     public string $namespace;
+    private string $title = "";
 
     public function __construct(string $namespace) {
         $this->setNamespace($namespace);
+    }
+
+    public function setTitleCondition(string $title): self {
+        $this->title = $title;
+        return $this;
     }
 
     public static function create(string $namespace = ""): self {

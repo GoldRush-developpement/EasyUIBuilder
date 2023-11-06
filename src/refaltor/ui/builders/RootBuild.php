@@ -7,4 +7,5 @@ interface RootBuild
     public function root(): Root;
     public function getNamespace(): string;
     public function getPathName(): string;
+    public function titleCondition(): string;
 }

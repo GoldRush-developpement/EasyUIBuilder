@@ -4,7 +4,6 @@ namespace refaltor\ui;
 
 
 use refaltor\roots\LabelTest;
-use refaltor\roots\Stats;
 use refaltor\ui\builders\RootBuild;
 use refaltor\ui\helpers\RegisterHelper;
 
@@ -14,6 +13,6 @@ class Entry extends RegisterHelper
 
 
         # register root ui
-        $this->register(new Stats());
+        $this->register(new LabelTest());
     }
 }
