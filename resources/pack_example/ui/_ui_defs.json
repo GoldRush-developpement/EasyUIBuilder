@@ -1,5 +1,6 @@
 {
     "ui_defs": [
+        "ui\/custom_ui\/ui_test_2.json",
         "ui\/custom_ui\/ui_test.json"
     ]
 }

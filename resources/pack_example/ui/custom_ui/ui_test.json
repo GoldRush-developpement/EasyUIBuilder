@@ -3,10 +3,10 @@
     "label_test": {
         "type": "label",
         "text": "Hello EasyUIBuilder !",
-        "font_size": "normal",
+        "font_size": "extra_large",
         "font_type": "default",
         "font_scale_factor": 1,
-        "shadow": false,
+        "shadow": true,
         "color": [
             1,
             1,

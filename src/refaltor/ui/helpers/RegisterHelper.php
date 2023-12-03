@@ -12,36 +12,42 @@ class RegisterHelper
         $root->setNamespace($namespace);
         $root->setTitleCondition($rootBuild->titleCondition());
 
+        $cheminNomPaquet = $rootBuild->getPathName();
+        $this->sendLog("\033[01;32m===== Début de la création de {$namespace} =====\033[0m".PHP_EOL);
+        if (!is_dir($cheminNomPaquet)) {
+            mkdir($cheminNomPaquet);
+            mkdir($cheminNomPaquet."ui/");
+            $this->sendLog("Ressource-pack ". $cheminNomPaquet . " non trouvé, création en cours...", "info");
+        }
 
+        $fichierUiDefs = $this->buildUiDefsFile($rootBuild);
+        $fichierFormulaireServeur = $this->buildServerFormFile($rootBuild);
 
-        $uiDefsFile = $this->buildUiDefsFile($rootBuild);
-        $serverFormFile = $this->buildServerFormFile($rootBuild);
+        $this->saveJsonToFile($cheminNomPaquet . "ui/_ui_defs.json", $fichierUiDefs);
+        $this->sendLog("Fichier ". $cheminNomPaquet . "ui/_ui_defs.json" . " prêt", "info");
+        $this->saveJsonToFile($cheminNomPaquet . "ui/server_form.json", $fichierFormulaireServeur);
+        $this->sendLog("Fichier ". $cheminNomPaquet . "ui/server_form.json" . " prêt", "info");
 
-
-        $packNamePath = $rootBuild->getPathName();
-        $this->saveJsonToFile($packNamePath . "ui/_ui_defs.json", $uiDefsFile);
-        $this->saveJsonToFile($packNamePath . "ui/server_form.json", $serverFormFile);
-
-
-        $customUiFile = json_decode(json_encode($root), true);
-        @mkdir($packNamePath . "/ui/custom_ui/");
-        $this->saveJsonToFile($packNamePath . "/ui/custom_ui/" . $namespace . ".json", $customUiFile);
+        $fichierUiPersonnalise = json_decode(json_encode($root), true);
+        @mkdir($cheminNomPaquet . "ui/custom_ui/");
+        $this->saveJsonToFile($cheminNomPaquet . "ui/custom_ui/" . $namespace . ".json", $fichierUiPersonnalise);
+        $this->sendLog(" Dernier fichier ". $cheminNomPaquet . "ui/custom_ui/" . $namespace . ".json" ." prêt, ressource-pack créé", "info");
     }
 
     private function buildUiDefsFile(RootBuild $rootBuild): array {
-        $jsonData = file_get_contents($rootBuild->getPathName() . "/ui/_ui_defs.json");
         $namespace = $rootBuild->getNamespace();
-        $uiFilePath = "ui/custom_ui/$namespace.json";
+        $cheminFichierUi = "ui/custom_ui/$namespace.json";
 
-        if (!$jsonData) {
+        if (!file_exists($rootBuild->getPathName() . "ui/_ui_defs.json")) {
             $jsonData = ["ui_defs" => []];
         } else {
+            $jsonData = file_get_contents($rootBuild->getPathName() . "ui/_ui_defs.json");
             $jsonData = json_decode($jsonData, true);
             $uiDefs = $jsonData["ui_defs"];
 
             // Vérifier si le fichier UI est déjà inclus
-            if (!in_array($uiFilePath, $uiDefs)) {
-                $uiDefs[] = $uiFilePath;
+            if (!in_array($cheminFichierUi, $uiDefs)) {
+                $uiDefs[] = $cheminFichierUi;
                 $jsonData["ui_defs"] = $uiDefs;
             }
         }
@@ -50,22 +56,42 @@ class RegisterHelper
     }
 
 
+    public function sendLog(string $text, string $sender = null): void
+    {
+        switch ($sender) {
+            case "info":
+                echo"\033[01;32m[INFO] {$text}\033[0m".PHP_EOL;
+                break;
+            case "notice":
+                echo"\033[01;34m[NOTICE] {$text}\033[0m".PHP_EOL;
+                break;
+            case "warning":
+                echo"\033[01;33m[AVERTISSEMENT] {$text}\033[0m".PHP_EOL;
+                break;
+            case "error":
+                echo"\033[01;31m[ERREUR] {$text}\033[0m".PHP_EOL;
+                break;
+            default:
+                echo $text;
+        }
+    }
+
     private function buildServerFormFile(RootBuild $rootBuild): array {
         $namespace = $rootBuild->getNamespace();
         $titleCondition = $rootBuild->titleCondition();
 
-        $packNamePath = $rootBuild->getPathName();
-        $serverFormFile = $packNamePath . "ui/server_form.json";
+        $cheminNomPaquet = $rootBuild->getPathName();
+        $fichierFormulaireServeur = $cheminNomPaquet . "ui/server_form.json";
         $jsonData = [];
 
-        if (file_exists($serverFormFile)) {
-            $contentServerForm = file_get_contents($serverFormFile);
-            $jsonData = json_decode($contentServerForm, true);
+        if (file_exists($fichierFormulaireServeur)) {
+            $contenuFormulaireServeur = file_get_contents($fichierFormulaireServeur);
+            $jsonData = json_decode($contenuFormulaireServeur, true);
         }
 
-        $controls = $jsonData["long_form@long_form"]["controls"] ?? [];
-        $newControlKey = $titleCondition . "@" . $namespace . "." . $namespace;
-        $newControl = [
+        $controles = $jsonData["long_form@long_form"]["controls"] ?? [];
+        $nouvelleCleControle = $titleCondition . "@" . $namespace . "." . $namespace;
+        $nouveauControle = [
             "bindings" => [
                 [
                     "binding_type" => "global",
@@ -81,11 +107,11 @@ class RegisterHelper
             ],
         ];
 
-        $controls[$newControlKey] = $newControl;
+        $controles[$nouvelleCleControle] = $nouveauControle;
 
-        $baseControlKey = 'long_form@common_dialogs.main_panel_no_buttons';
-        if (!isset($controls[$baseControlKey])) {
-            $controls[$baseControlKey] = [
+        $cleControleBase = 'long_form@common_dialogs.main_panel_no_buttons';
+        if (!isset($controles[$cleControleBase])) {
+            $controles[$cleControleBase] = [
                 '$title_panel' => 'common_dialogs.standard_title_label',
                 '$title_size' => ['100% - 14px', 10],
                 '$size' => ['fill', 'fill'],
@@ -109,7 +135,7 @@ class RegisterHelper
             ];
         }
 
-        $jsonData["long_form@long_form"]["controls"] = $controls;
+        $jsonData["long_form@long_form"]["controls"] = $controles;
 
         foreach ($jsonData["long_form@long_form"]["controls"] as $index => $values) {
             if (isset($values['$title_panel'])) {
@@ -123,12 +149,8 @@ class RegisterHelper
                 $jsonData["long_form@long_form"]["con"][1]["source_property_name"] = $condition;
             }
         }
-
         return $jsonData;
     }
-
-
-
 
     private function saveJsonToFile(string $filename, array $data): void {
         $json = json_encode($data, JSON_PRETTY_PRINT);

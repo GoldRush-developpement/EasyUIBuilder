@@ -60,7 +60,7 @@ class Button extends Element implements  \JsonSerializable
             '$locked_button_texture' => $this->lockedButtonTexture,
             '$focus_enabled' => false,
             '$focus_wrap_enabled' => false,
-            '$condition' => "(#form_button_text = ".$this->titleConditionVisible.")"
+            '$condition' => "(#form_button_text = '".$this->titleConditionVisible."')"
         ]];
 
         foreach ($propertiesExtra as $propertyName => $property) {

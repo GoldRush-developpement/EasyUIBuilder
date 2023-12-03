@@ -67,9 +67,6 @@ class Root implements \JsonSerializable
     public function generateAndSaveJson(string $filename): void {
         $json = json_encode($this, JSON_PRETTY_PRINT);
         $filePath =  $filename;
-        var_dump($filePath);
         file_put_contents($filePath, $json);
-
-        echo "Le fichier JSON a été enregistré sous : " . $filePath;
     }
 }

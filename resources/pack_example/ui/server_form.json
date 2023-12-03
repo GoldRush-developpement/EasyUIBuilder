@@ -1,5 +1,4 @@
 {
-    "namespace": "server_form",
     "long_form@long_form": {
         "controls": {
             "long_form@common_dialogs.main_panel_no_buttons": {
@@ -24,7 +23,7 @@
                         "binding_name_override": "#title_text"
                     },
                     {
-                        "source_property_name": "(not(#title_text = 'LABEL_TEST'))",
+                        "source_property_name": "(not(#title_text = 'MONTURE')not(#title_text = 'LABEL_TEST')not(#title_text = 'LABEL_TEST_2')not(#title_text = 'LABEL_TEST')not(#title_text = 'LABEL_TEST_2')not(#title_text = 'LABEL_TEST')not(#title_text = 'LABEL_TEST_2'))",
                         "binding_type": "view",
                         "target_property_name": "#visible"
                     }
@@ -44,6 +43,31 @@
                         "target_property_name": "#visible"
                     }
                 ]
+            },
+            "LABEL_TEST_2@ui_test_2.ui_test_2": {
+                "bindings": [
+                    {
+                        "binding_type": "global",
+                        "binding_condition": "none",
+                        "binding_name": "#title_text",
+                        "binding_name_override": "#title_text"
+                    },
+                    {
+                        "source_property_name": "(#title_text = 'LABEL_TEST_2')",
+                        "binding_type": "view",
+                        "target_property_name": "#visible"
+                    }
+                ]
+            }
+        },
+        "bindings": {
+            "1": {
+                "source_property_name": "(not(#title_text = 'MONTURE')not(#title_text = 'LABEL_TEST_2'))"
+            }
+        },
+        "con": {
+            "1": {
+                "source_property_name": "(not(#title_text = 'MONTURE')not(#title_text = 'LABEL_TEST')not(#title_text = 'LABEL_TEST_2')not(#title_text = 'LABEL_TEST')not(#title_text = 'LABEL_TEST_2')not(#title_text = 'LABEL_TEST')not(#title_text = 'LABEL_TEST_2'))"
             }
         }
     }
