@@ -1,0 +1,78 @@
+{
+    "namespace": "grid_example",
+    "grid_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "inventory_grid": {
+                    "type": "grid",
+                    "grid_dimensions": [
+                        3,
+                        3
+                    ],
+                    "maximum_grid_items": 9,
+                    "grid_dimension_binding": "",
+                    "grid_rescaling_type": "horizontal",
+                    "grid_fill_direction": "horizontal",
+                    "grid_item_template": "common.inventory_slot",
+                    "precached_grid_item_count": 0,
+                    "size": [
+                        180,
+                        180
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center"
+                }
+            },
+            {
+                "list_grid": {
+                    "type": "grid",
+                    "grid_dimensions": [
+                        1,
+                        5
+                    ],
+                    "maximum_grid_items": 5,
+                    "grid_dimension_binding": "",
+                    "grid_rescaling_type": "none",
+                    "grid_fill_direction": "vertical",
+                    "grid_item_template": "",
+                    "precached_grid_item_count": 0,
+                    "size": [
+                        200,
+                        250
+                    ],
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle",
+                    "offset": [
+                        -10,
+                        0
+                    ]
+                }
+            }
+        ]
+    }
+}

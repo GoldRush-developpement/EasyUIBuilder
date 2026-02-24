@@ -1,0 +1,181 @@
+{
+    "namespace": "stackpanel_example",
+    "vertical_menu": {
+        "type": "stack_panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            200,
+            200
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "controls": [
+            {
+                "menu_item_1": {
+                    "type": "label",
+                    "text": "Play Game",
+                    "font_size": "large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        200,
+                        30
+                    ]
+                }
+            },
+            {
+                "menu_item_2": {
+                    "type": "label",
+                    "text": "Settings",
+                    "font_size": "large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        200,
+                        30
+                    ]
+                }
+            },
+            {
+                "menu_item_3": {
+                    "type": "label",
+                    "text": "Credits",
+                    "font_size": "large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        200,
+                        30
+                    ]
+                }
+            }
+        ],
+        "orientation": "vertical"
+    },
+    "toolbar": {
+        "type": "stack_panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            40
+        ],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "controls": [
+            {
+                "tool_1": {
+                    "type": "label",
+                    "text": "Home",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": false,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "size": [
+                        80,
+                        40
+                    ]
+                }
+            },
+            {
+                "tool_2": {
+                    "type": "label",
+                    "text": "Inventory",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": false,
+                    "color": [
+                        0,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        80,
+                        40
+                    ]
+                }
+            },
+            {
+                "tool_3": {
+                    "type": "label",
+                    "text": "Map",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": false,
+                    "color": [
+                        0,
+                        1,
+                        0
+                    ],
+                    "size": [
+                        80,
+                        40
+                    ]
+                }
+            }
+        ],
+        "orientation": "horizontal"
+    }
+}

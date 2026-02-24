@@ -7,8 +7,17 @@ ini_set('memory_limit', '-1');
 
 spl_autoload_register(function (string $classname): void {
     if (str_contains($classname, "refaltor\\")) {
-        $classname = "./src/" . str_replace("\\", "/", $classname) . ".php";
-        require_once($classname);
+        $srcPath = "./src/" . str_replace("\\", "/", $classname) . ".php";
+        if (file_exists($srcPath)) {
+            require_once($srcPath);
+            return;
+        }
+        // Fallback: load from tests/ directory
+        $shortName = substr($classname, strrpos($classname, "\\") + 1);
+        $testPath = "./tests/" . $shortName . ".php";
+        if (file_exists($testPath)) {
+            require_once($testPath);
+        }
     }
 });
 

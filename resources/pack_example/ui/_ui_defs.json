@@ -1,6 +1,14 @@
 {
     "ui_defs": [
         "ui\/custom_ui\/ui_test_2.json",
-        "ui\/custom_ui\/ui_test.json"
+        "ui\/custom_ui\/ui_test.json",
+        "ui\/custom_ui\/label_example.json",
+        "ui\/custom_ui\/panel_example.json",
+        "ui\/custom_ui\/button_example.json",
+        "ui\/custom_ui\/image_example.json",
+        "ui\/custom_ui\/grid_example.json",
+        "ui\/custom_ui\/stackpanel_example.json",
+        "ui\/custom_ui\/full_menu_example.json",
+        "ui\/custom_ui\/color_example.json"
     ]
 }

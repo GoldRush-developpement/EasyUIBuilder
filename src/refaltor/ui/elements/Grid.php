@@ -5,12 +5,12 @@ namespace refaltor\ui\elements;
 class Grid extends Element implements \JsonSerializable
 {
     private array $gridDimensions = [0, 0];
-    private int $maximumGridItems;
+    private int $maximumGridItems = 0;
     private string $gridDimensionBinding = '';
     private string $gridRescalingType = 'none';
     private string $gridFillDirection = 'none';
     private string $gridItemTemplate = '';
-    private int $precachedGridItemCount;
+    private int $precachedGridItemCount = 0;
 
     public function __construct(
         string $name,

@@ -1,0 +1,178 @@
+{
+    "namespace": "panel_example",
+    "main_panel": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "bg_image": {
+                    "type": "image",
+                    "texture": "textures\/ui\/background",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": false,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ]
+                }
+            },
+            {
+                "inner_panel": {
+                    "type": "panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 0.9,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        200,
+                        150
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "panel_title": {
+                                "type": "label",
+                                "text": "Inner Panel",
+                                "font_size": "large",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "anchor_from": "top_middle",
+                                "anchor_to": "top_middle",
+                                "offset": [
+                                    0,
+                                    5
+                                ]
+                            }
+                        },
+                        {
+                            "clipped_panel": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    180,
+                                    80
+                                ],
+                                "anchor_from": "bottom_middle",
+                                "anchor_to": "bottom_middle",
+                                "offset": [
+                                    0,
+                                    -10
+                                ],
+                                "controls": [
+                                    {
+                                        "clipped_text": {
+                                            "type": "label",
+                                            "text": "This text is inside a clipped panel",
+                                            "font_size": "small",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": false,
+                                            "color": [
+                                                0,
+                                                1,
+                                                1
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

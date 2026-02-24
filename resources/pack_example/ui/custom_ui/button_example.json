@@ -1,0 +1,159 @@
+{
+    "namespace": "button_example",
+    "button_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "simple_button@.template_button_easy_ui_builder_stack_panel": {
+                    "$pressed_button_name": "button.form_button_click",
+                    "$button_text": "Click Me",
+                    "$button_text_binding_type": "collection",
+                    "$button_state_panel|default": "common_buttons.new_ui_button_panel",
+                    "$button_text_grid_collection_name": "form_buttons",
+                    "$default_button_texture": "",
+                    "$hover_button_texture": "",
+                    "$pressed_button_texture": "",
+                    "$locked_button_texture": "",
+                    "$focus_enabled": false,
+                    "$focus_wrap_enabled": false,
+                    "$condition": "(#form_button_text = 'Click Me')",
+                    "$size": [
+                        200,
+                        30
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        -30
+                    ]
+                }
+            },
+            {
+                "custom_button@.template_button_easy_ui_builder_stack_panel": {
+                    "$pressed_button_name": "button.form_button_click",
+                    "$button_text": "Custom Style",
+                    "$button_text_binding_type": "collection",
+                    "$button_state_panel|default": "common_buttons.new_ui_button_panel",
+                    "$button_text_grid_collection_name": "form_buttons",
+                    "$default_button_texture": "textures\/ui\/button_default",
+                    "$hover_button_texture": "textures\/ui\/button_hover",
+                    "$pressed_button_texture": "textures\/ui\/button_pressed",
+                    "$locked_button_texture": "textures\/ui\/button_locked",
+                    "$focus_enabled": false,
+                    "$focus_wrap_enabled": false,
+                    "$condition": "(#form_button_text = 'Custom Style')",
+                    "$size": [
+                        200,
+                        30
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "small_button@.template_button_easy_ui_builder_stack_panel": {
+                    "$pressed_button_name": "button.form_button_click",
+                    "$button_text": "Exit",
+                    "$button_text_binding_type": "collection",
+                    "$button_state_panel|default": "common_buttons.new_ui_button_panel",
+                    "$button_text_grid_collection_name": "form_buttons",
+                    "$default_button_texture": "",
+                    "$hover_button_texture": "",
+                    "$pressed_button_texture": "",
+                    "$locked_button_texture": "",
+                    "$focus_enabled": false,
+                    "$focus_wrap_enabled": false,
+                    "$condition": "(#form_button_text = 'Exit')",
+                    "$size": [
+                        100,
+                        20
+                    ],
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle",
+                    "offset": [
+                        0,
+                        -10
+                    ]
+                }
+            }
+        ]
+    },
+    "template_button_easy_ui_builder@common_buttons.light_text_button": {
+        "pressed_button_name": "button.form_button_click",
+        "$size|default": [
+            "100%",
+            "100%"
+        ],
+        "size": "$size",
+        "$condition|default": true,
+        "$button_text": "",
+        "button_text": "$button_text",
+        "button_text_binding_type": "collection",
+        "button_text_grid_collection_name": "form_buttons",
+        "button_text_max_size": [
+            "100%",
+            20
+        ],
+        "$border_visible": false,
+        "bindings": [
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_name": "#form_button_text",
+                "binding_type": "collection",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "$condition",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "template_button_easy_ui_builder_stack_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "factory": {
+            "name": "buttons",
+            "control_name": ".template_button_easy_ui_builder"
+        },
+        "collection_name": "form_buttons",
+        "bindings": [
+            {
+                "binding_name": "#form_button_length",
+                "binding_name_override": "#collection_length"
+            }
+        ]
+    }
+}

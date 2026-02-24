@@ -1,0 +1,282 @@
+{
+    "namespace": "color_example",
+    "color_stack": {
+        "type": "stack_panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            250,
+            300
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "controls": [
+            {
+                "color_white": {
+                    "type": "label",
+                    "text": "White",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "color_black": {
+                    "type": "label",
+                    "text": "Black",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "color_red": {
+                    "type": "label",
+                    "text": "Red",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "color_green": {
+                    "type": "label",
+                    "text": "Green",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0,
+                        1,
+                        0
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "color_blue": {
+                    "type": "label",
+                    "text": "Blue",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0,
+                        0,
+                        1
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "color_yellow": {
+                    "type": "label",
+                    "text": "Yellow",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "color_cyan": {
+                    "type": "label",
+                    "text": "Cyan",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "color_magenta": {
+                    "type": "label",
+                    "text": "Magenta",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        0,
+                        1
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "rgb_custom": {
+                    "type": "label",
+                    "text": "Custom RGB (0.5, 0.3, 0.9)",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0.5,
+                        0.3,
+                        0.9
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "random_color": {
+                    "type": "label",
+                    "text": "Random Color",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0.17,
+                        0.89,
+                        0.07
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "pastel_color": {
+                    "type": "label",
+                    "text": "Random Pastel",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0.8705882352941177,
+                        0.788235294117647,
+                        0.788235294117647
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "gray_shade": {
+                    "type": "label",
+                    "text": "Random Gray Shade",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0.35,
+                        0.35,
+                        0.35
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            },
+            {
+                "complementary": {
+                    "type": "label",
+                    "text": "Complementary of Red",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        250,
+                        20
+                    ]
+                }
+            }
+        ],
+        "orientation": "vertical"
+    }
+}

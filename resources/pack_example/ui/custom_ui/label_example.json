@@ -1,0 +1,107 @@
+{
+    "namespace": "label_example",
+    "basic_label": {
+        "type": "label",
+        "text": "Hello World!",
+        "font_size": "normal",
+        "font_type": "default",
+        "font_scale_factor": 1,
+        "shadow": false,
+        "color": [
+            1,
+            1,
+            1
+        ]
+    },
+    "title_label": {
+        "type": "label",
+        "text": "Game Title",
+        "font_size": "extra_large",
+        "font_type": "default",
+        "font_scale_factor": 1,
+        "shadow": true,
+        "color": [
+            1,
+            1,
+            0
+        ],
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "offset": [
+            0,
+            10
+        ]
+    },
+    "subtitle_label": {
+        "type": "label",
+        "text": "A subtitle in cyan",
+        "font_size": "small",
+        "font_type": "default",
+        "font_scale_factor": 1,
+        "shadow": false,
+        "color": [
+            0,
+            1,
+            1
+        ],
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "offset": [
+            0,
+            30
+        ]
+    },
+    "minecraft_font_label": {
+        "type": "label",
+        "text": "MinecraftTen Font",
+        "font_size": "large",
+        "font_type": "MinecraftTen",
+        "font_scale_factor": 1,
+        "shadow": true,
+        "color": [
+            1,
+            1,
+            1
+        ],
+        "anchor_from": "center",
+        "anchor_to": "center"
+    },
+    "scaled_label": {
+        "type": "label",
+        "text": "Scaled x2",
+        "font_size": "normal",
+        "font_type": "default",
+        "font_scale_factor": 2,
+        "shadow": false,
+        "color": [
+            1,
+            0,
+            0
+        ],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "offset": [
+            0,
+            -20
+        ]
+    },
+    "custom_color_label": {
+        "type": "label",
+        "text": "Custom RGB Color",
+        "font_size": "large",
+        "font_type": "default",
+        "font_scale_factor": 1,
+        "shadow": true,
+        "color": [
+            0.5,
+            0.8,
+            0.2
+        ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [
+            10,
+            -10
+        ]
+    }
+}
