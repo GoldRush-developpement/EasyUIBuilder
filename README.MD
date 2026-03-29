@@ -1,12 +1,12 @@
 ![logo](img/logo.png)
 
-# EasyUIBuilder v2.0.0
+# EasyUIBuilder v2.1.0
 
 ![PHP 8.0+](https://img.shields.io/badge/PHP-8.0%2B-777BB4?logo=php&logoColor=white)
-![Version](https://img.shields.io/badge/version-2.0.0-blue)
+![Version](https://img.shields.io/badge/version-2.1.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-A PHP library for generating **Minecraft Bedrock Edition JSON UI** files using a fluent builder pattern. Build labels, panels, buttons, images, grids, and stack panels with clean, readable code — and output Minecraft-compatible resource packs automatically.
+A PHP library for generating **Minecraft Bedrock Edition JSON UI** files using a fluent builder pattern. Build complex UI screens with clean, readable code — and output Minecraft-compatible resource packs automatically.
 
 ---
 
@@ -14,7 +14,10 @@ A PHP library for generating **Minecraft Bedrock Edition JSON UI** files using a
 
 - **Fluent API** — chainable methods for all UI elements
 - **Auto-generation** of `_ui_defs.json` and `server_form.json`
-- **All Bedrock UI types** — Label, Panel, Button, Image, Grid, StackPanel
+- **All Bedrock UI types** — Label, Panel, Button, Image, Grid, StackPanel, Toggle, Slider, EditBox, ScrollView, Dropdown, InputPanel, Screen, CustomRender
+- **Binding system** — global, view, collection and visibility bindings
+- **Animation system** — alpha, offset, size, color, clip, flip_book with 30+ easings
+- **Variable system** — conditional variables for platform/input-specific layouts
 - **Utility elements** — CloseButton, PlayerRender (pre-built components)
 - **Color utilities** — predefined colors, RGB, random, pastel, complementary
 - **Anchoring system** — 9-point anchor positioning with offsets
@@ -66,175 +69,46 @@ $root->generateAndSaveJson("ui/my_screen.json");
 
 ---
 
-## API Reference
+## UI Elements
 
-### Root
+### Core Elements
 
-The top-level container for a UI screen.
+| Element | Description |
+|---------|-------------|
+| **Label** | Text with font size/type/scale, shadow, color |
+| **Panel** | Container with visibility, alpha, clipping, scissor |
+| **Button** | Interactive button with 4-state textures, factory system |
+| **Image** | Texture with UV, 9-slice, tiling, clip, grayscale |
+| **Grid** | Dynamic grid layout with templates and fill direction |
+| **StackPanel** | Auto-layout container (vertical/horizontal) |
 
-```php
-$root = Root::create("namespace_name");
-$root->addElement($element);         // Add a single element
-$root->addElements([$el1, $el2]);    // Add multiple elements
-$root->generateAndSaveJson("path"); // Save to JSON file
-$root->setTitleCondition("TITLE");   // Set visibility condition
-```
+### Extended Elements (v2.1)
 
-### Element (Base Class)
+| Element | Description |
+|---------|-------------|
+| **Toggle** | Checkbox/switch with radio groups, checked/unchecked controls |
+| **Slider** | Value cursor with steps, direction, box/track controls |
+| **EditBox** | Text input with placeholder, max length, text types |
+| **ScrollView** | Scrollable container (vertical/horizontal) |
+| **Dropdown** | Dropdown menu with items |
+| **InputPanel** | Input handling with focus navigation, button mappings, modal |
+| **Screen** | Screen root element with render flags, input absorption |
+| **CustomRender** | Native renderers (paper_doll, inventory_item, panorama...) |
 
-All UI elements inherit from `Element`. Common methods:
+### Utility Elements
 
-```php
-$element->setAnchorFrom(Element::ANCHOR_CENTER);   // Anchor origin
-$element->setAnchorTo(Element::ANCHOR_CENTER);      // Anchor target
-$element->setOffset(10, -5);                         // X, Y offset
-$element->setSize(200, 100);                         // Width, Height (pixels)
-$element->setSizePercentage(50, 100);                // Width%, Height%
-$element->setSizePixel(100, 50);                     // Pixel size
-$element->setCustomSize(["100%", "50px"]);           // Mixed sizing
-$element->setLayer(2);                               // Z-layer
-$element->setAlpha(0.8);                             // Transparency
-$element->addChild($otherElement);                   // Nest elements
-$element->addChilds([$el1, $el2]);                   // Nest multiple
-$element->enableFactoryButton($root);                // Enable button factory
-```
+| Element | Description |
+|---------|-------------|
+| **CloseButton** | Pre-built close button extending Bedrock's common dialog |
+| **PlayerRender** | Pre-built player skin viewer |
 
-**Anchor constants:**
-| Constant | Value |
-|---|---|
-| `ANCHOR_TOP_LEFT` | `top_left` |
-| `ANCHOR_TOP_MIDDLE` | `top_middle` |
-| `ANCHOR_TOP_RIGHT` | `top_right` |
-| `ANCHOR_LEFT_MIDDLE` | `left_middle` |
-| `ANCHOR_CENTER` | `center` |
-| `ANCHOR_RIGHT_MIDDLE` | `right_middle` |
-| `ANCHOR_BOTTOM_LEFT` | `bottom_left` |
-| `ANCHOR_BOTTOM_MIDDLE` | `bottom_middle` |
-| `ANCHOR_BOTTOM_RIGHT` | `bottom_right` |
+### Component Systems (v2.1)
 
-### Label
-
-Text element with font customization.
-
-```php
-$label = Label::create("name", "Display text");
-$label->setFontSize(Label::FONT_EXTRA_LARGE);  // FONT_SMALL, FONT_NORMAL, FONT_LARGE, FONT_EXTRA_LARGE
-$label->setFontType(Label::TYPE_MINECRAFT_TEN); // TYPE_DEFAULT, TYPE_RUNE, TYPE_UNICODE, TYPE_SMOOTH, TYPE_MINECRAFT_TEN
-$label->setFontScaleFactor(2.0);                // Scale multiplier
-$label->setShadow();                            // Enable text shadow
-$label->setColor(BasicColor::red());            // Set text color
-```
-
-### Panel
-
-Container element for grouping and layout.
-
-```php
-$panel = Panel::create("name");
-// Inherits all Element methods plus:
-// visible, enabled, alpha, propagateAlpha, clipsChildren, allowClipping,
-// clipOffset, enableScissorTest, propertyBag, anims, variables...
-```
-
-### Button
-
-Interactive button element. Requires `enableFactoryButton($root)` on the parent.
-
-```php
-$button = Button::create("name", $root);
-$button->setButtonText("Click Me");
-$button->setVisibleIfTitle("Click Me");                      // Visibility condition
-$button->setDefaultButtonTexture("textures/ui/btn_default"); // Default state
-$button->setHoverButtonTexture("textures/ui/btn_hover");     // Hover state
-$button->setPressedButtonTexture("textures/ui/btn_pressed"); // Pressed state
-$button->setLockedButtonTexture("textures/ui/btn_locked");   // Locked state
-```
-
-### Image
-
-Image element with texture options.
-
-```php
-$image = Image::create("name", "textures/ui/my_texture");
-$image->setNinesliceSize(4);           // 9-slice border size
-$image->setTiled(true);                // Enable tiling
-$image->setTiledScale([2.0, 2.0]);    // Tile scale
-$image->setUv([16, 16]);              // UV offset (sprite sheet)
-$image->setUvSize([16, 16]);          // UV crop size
-$image->setGrayscale(true);           // Grayscale filter
-$image->setKeepRatio(true);           // Maintain aspect ratio
-$image->setBilinear(true);            // Bilinear filtering
-$image->setFill(true);                // Fill mode
-$image->setClipDirection("left");     // Clip direction
-$image->setClipRatio(0.5);            // Clip ratio
-$image->setTextureFileSystem("InUserPackage"); // File system
-```
-
-### Grid
-
-Grid layout for repeated elements.
-
-```php
-$grid = Grid::create("name");
-$grid->setGridDimensions([3, 3]);                   // Columns, Rows
-$grid->setMaximumGridItems(9);                       // Max items
-$grid->setGridItemTemplate("common.inventory_slot"); // Template element
-$grid->setGridFillDirection("horizontal");           // Fill direction
-$grid->setGridRescalingType("horizontal");           // Rescaling type
-$grid->setPrecachedGridItemCount(9);                 // Precached count
-```
-
-### StackPanel
-
-Layout panel that stacks children vertically or horizontally.
-
-```php
-$stack = StackPanel::create("name");
-$stack->setOrientation(OrientationHelper::VERTICAL);   // or HORIZONTAL
-$stack->addChild($element1);
-$stack->addChild($element2);
-```
-
-### CloseButton (Utility)
-
-Pre-built close button extending `common_dialogs.common_close_button_holder`.
-
-```php
-$close = CloseButton::create("name");
-$close->setDefaultTextureButton("textures/ui/close_default");
-$close->setHoverTextureButton("textures/ui/close_hover");
-$close->setPressedTextureButton("textures/ui/close_pressed");
-```
-
-### PlayerRender (Utility)
-
-Pre-built player skin viewer extending `start.skin_viewer_panel`.
-
-```php
-$player = PlayerRender::create("name");
-$player->setSize(80, 120);
-```
-
-### BasicColor
-
-Color utility with predefined colors and generators.
-
-```php
-BasicColor::white();       // [1.0, 1.0, 1.0]
-BasicColor::black();       // [0.0, 0.0, 0.0]
-BasicColor::red();         // [1.0, 0.0, 0.0]
-BasicColor::green();       // [0.0, 1.0, 0.0]
-BasicColor::blue();        // [0.0, 0.0, 1.0]
-BasicColor::yellow();      // [1.0, 1.0, 0.0]
-BasicColor::cyan();        // [0.0, 1.0, 1.0]
-BasicColor::magenta();     // [1.0, 0.0, 1.0]
-
-BasicColor::rgb(0.5, 0.3, 0.9);              // Custom RGB
-BasicColor::randomColor();                     // Random color
-BasicColor::randomPastelColor();               // Random pastel
-BasicColor::randomShadeOfGray();               // Random gray
-BasicColor::complementaryColor([1, 0, 0]);     // Complementary color
-```
+| Component | Description |
+|-----------|-------------|
+| **Binding** | Data bindings (global, view, collection, visibility) |
+| **Animation** | UI animations with 30+ easings and chaining |
+| **Variable** | Conditional variables for adaptive layouts |
 
 ---
 
@@ -243,14 +117,6 @@ BasicColor::complementaryColor([1, 0, 0]);     // Complementary color
 To create a new UI screen, implement the `RootBuild` interface:
 
 ```php
-<?php
-
-namespace refaltor\roots;
-
-use refaltor\ui\builders\Root;
-use refaltor\ui\builders\RootBuild;
-use refaltor\ui\elements\Label;
-
 class MyScreen implements RootBuild
 {
     public function root(): Root
@@ -264,132 +130,41 @@ class MyScreen implements RootBuild
         return $root;
     }
 
-    public function getNamespace(): string
-    {
-        return "my_screen";
-    }
-
-    public function getPathName(): string
-    {
-        return "./resources/pack_example/";
-    }
-
-    public function titleCondition(): string
-    {
-        return "MY_SCREEN";
-    }
+    public function getNamespace(): string { return "my_screen"; }
+    public function getPathName(): string { return "./resources/pack_example/"; }
+    public function titleCondition(): string { return "MY_SCREEN"; }
 }
 ```
 
-Then register it in `Entry.php`:
-
-```php
-public function startingService(): void {
-    $this->register(new MyScreen());
-}
-```
-
-Run `php start.php` to generate all JSON files.
+Register it in `Entry.php` and run `php start.php` to generate all JSON files.
 
 ---
 
 ## Examples
 
-The `tests/` directory contains complete examples demonstrating every feature:
+The `tests/` directory contains complete examples for every feature:
 
 | File | Description |
-|---|---|
-| [`LabelExample.php`](tests/LabelExample.php) | Font sizes, types, colors, shadows, scaling, anchoring |
+|------|-------------|
+| [`LabelExample.php`](tests/LabelExample.php) | Font sizes, types, colors, shadows, scaling |
 | [`PanelExample.php`](tests/PanelExample.php) | Nested panels, background images, alpha, clipping |
-| [`ButtonExample.php`](tests/ButtonExample.php) | Custom textures, visibility conditions, button factory |
+| [`ButtonExample.php`](tests/ButtonExample.php) | Custom textures, visibility conditions, factory |
 | [`ImageExample.php`](tests/ImageExample.php) | Tiling, nineslice, UV mapping, grayscale, fill |
 | [`GridExample.php`](tests/GridExample.php) | Grid dimensions, item templates, fill direction |
 | [`StackPanelExample.php`](tests/StackPanelExample.php) | Vertical and horizontal layouts |
 | [`FullMenuExample.php`](tests/FullMenuExample.php) | Complete game menu combining all elements |
-| [`ColorExample.php`](tests/ColorExample.php) | All BasicColor functions demonstrated |
-
-All examples implement `RootBuild` and are registered in `Entry.php` — run `php start.php` to generate them all.
-
----
-
-## Full Example — Game Menu
-
-This example from [`tests/FullMenuExample.php`](tests/FullMenuExample.php) builds a complete menu with background, title, player render, buttons, and close button:
-
-```php
-$root = Root::create();
-
-$mainPanel = Panel::create("main_menu_panel")
-    ->setSizePercentage(100, 100);
-
-// Background
-$mainPanel->addChild(
-    Image::create("bg", "textures/ui/dialog_background_opaque")
-        ->setSizePercentage(100, 100)
-        ->setNinesliceSize(4)
-        ->setLayer(-1)
-);
-
-// Close button
-$mainPanel->addChild(
-    CloseButton::create("close")
-        ->setAnchorFrom(Element::ANCHOR_TOP_RIGHT)
-        ->setAnchorTo(Element::ANCHOR_TOP_RIGHT)
-        ->setOffset(-5, 5)
-);
-
-// Title
-$mainPanel->addChild(
-    Label::create("title", "My Menu")
-        ->setFontSize(Label::FONT_EXTRA_LARGE)
-        ->setFontType(Label::TYPE_MINECRAFT_TEN)
-        ->setShadow()
-        ->setColor(BasicColor::yellow())
-        ->setAnchorFrom(Element::ANCHOR_TOP_MIDDLE)
-        ->setAnchorTo(Element::ANCHOR_TOP_MIDDLE)
-        ->setOffset(0, 15)
-);
-
-// Player skin
-$mainPanel->addChild(
-    PlayerRender::create("player")
-        ->setSize(80, 120)
-        ->setAnchorFrom(Element::ANCHOR_LEFT_MIDDLE)
-        ->setAnchorTo(Element::ANCHOR_LEFT_MIDDLE)
-        ->setOffset(20, 0)
-);
-
-// Buttons
-$buttonStack = StackPanel::create("buttons")
-    ->setOrientation(OrientationHelper::VERTICAL)
-    ->setSize(200, 160)
-    ->setAnchorFrom(Element::ANCHOR_CENTER)
-    ->setAnchorTo(Element::ANCHOR_CENTER);
-$buttonStack->enableFactoryButton($root);
-
-$buttonStack->addChild(
-    Button::create("play", $root)
-        ->setButtonText("Play")
-        ->setVisibleIfTitle("Play")
-        ->setSize(200, 30)
-);
-
-$mainPanel->addChild($buttonStack);
-$root->addElement($mainPanel);
-```
-
----
-
-## OrientationHelper
-
-Constants for StackPanel orientation:
-
-```php
-use refaltor\ui\helpers\OrientationHelper;
-
-OrientationHelper::VERTICAL;   // "vertical"
-OrientationHelper::HORIZONTAL; // "horizontal"
-```
+| [`ColorExample.php`](tests/ColorExample.php) | All BasicColor functions |
+| [`ToggleExample.php`](tests/ToggleExample.php) | Toggle, radio groups, checked/unchecked controls |
+| [`SliderExample.php`](tests/SliderExample.php) | Horizontal/vertical sliders, steps, controls |
+| [`EditBoxExample.php`](tests/EditBoxExample.php) | Text/number input, placeholder, locked fields |
+| [`ScrollViewExample.php`](tests/ScrollViewExample.php) | Vertical/horizontal scroll, chat jump-to-bottom |
+| [`DropdownExample.php`](tests/DropdownExample.php) | Gamemode, difficulty, language dropdowns |
+| [`InputPanelExample.php`](tests/InputPanelExample.php) | Modal dialog, focus nav, gesture tracking |
+| [`ScreenExample.php`](tests/ScreenExample.php) | Modal/HUD/cached screens, close on hurt |
+| [`CustomRenderExample.php`](tests/CustomRenderExample.php) | Paper doll, item renderer, gradient, vignette |
+| [`BindingExample.php`](tests/BindingExample.php) | Global, view, collection bindings, visibility |
+| [`AnimationExample.php`](tests/AnimationExample.php) | Fade, slide, pulse, bounce, elastic, chain, clip |
+| [`VariableExample.php`](tests/VariableExample.php) | Platform, input-mode, screen-size conditionals |
 
 ---
 
@@ -408,4 +183,4 @@ Generated files are output to `resources/pack_example/`:
 
 ## Wiki
 
-For more details: https://github.com/GoldRush-developpement/EasyUIBuilder/wiki
+For full API documentation: **https://github.com/Refaltor77/EasyUIBuilder/wiki**
