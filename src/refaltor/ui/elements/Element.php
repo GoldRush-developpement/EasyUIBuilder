@@ -3,11 +3,17 @@
 namespace refaltor\ui\elements;
 
 use refaltor\ui\builders\Root;
+use refaltor\ui\components\Animation;
+use refaltor\ui\components\Binding;
+use refaltor\ui\components\Variable;
 
 class Element implements \JsonSerializable
 {
     public array $properties = [];
     public array $controls = [];
+    protected array $bindings = [];
+    protected array $variables = [];
+    protected array $anims = [];
 
     const ANCHOR_TOP_LEFT = 'top_left';
     const ANCHOR_TOP_MIDDLE = 'top_middle';
@@ -133,11 +139,85 @@ class Element implements \JsonSerializable
         return $this;
     }
 
+    public function addBinding(Binding $binding): self {
+        $this->bindings[] = $binding;
+        return $this;
+    }
+
+    public function addBindings(array $bindings): self {
+        foreach ($bindings as $binding) {
+            $this->bindings[] = $binding;
+        }
+        return $this;
+    }
+
+    public function setVisible(string $condition): self {
+        $this->bindings[] = Binding::visibility($condition);
+        return $this;
+    }
+
+    public function addVariable(Variable $variable): self {
+        $this->variables[] = $variable;
+        return $this;
+    }
+
+    public function addVariables(array $variables): self {
+        foreach ($variables as $variable) {
+            $this->variables[] = $variable;
+        }
+        return $this;
+    }
+
+    public function addAnim(string $animReference): self {
+        $this->anims[] = $animReference;
+        return $this;
+    }
+
+    public function addAnims(array $animReferences): self {
+        foreach ($animReferences as $anim) {
+            $this->anims[] = $anim;
+        }
+        return $this;
+    }
+
+    public function setPropertyBag(array $propertyBag): self {
+        $this->properties['property_bag'] = $propertyBag;
+        return $this;
+    }
+
+    public function setIgnored(bool $ignored): self {
+        $this->properties['ignored'] = $ignored;
+        return $this;
+    }
+
+    public function setClipsChildren(bool $clips): self {
+        $this->properties['clips_children'] = $clips;
+        return $this;
+    }
+
+    public function setMaxSize(array $size): self {
+        $this->properties['max_size'] = $size;
+        return $this;
+    }
+
+    public function setMinSize(array $size): self {
+        $this->properties['min_size'] = $size;
+        return $this;
+    }
+
+    public function setEnabled(bool $enabled): self {
+        $this->properties['enabled'] = $enabled;
+        return $this;
+    }
+
     public function jsonSerialize()
     {
         return [
             'properties_extra' => $this->properties,
-            'controls' => $this->controls
+            'controls' => $this->controls,
+            'bindings' => $this->bindings,
+            'variables' => $this->variables,
+            'anims' => $this->anims,
         ];
     }
 

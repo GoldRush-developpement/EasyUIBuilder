@@ -17,11 +17,9 @@ class Panel extends Element implements \JsonSerializable
     private array $propertyBag = [];
     private bool $selected = false;
     private bool $useChildAnchors = false;
-    private array $anims = [];
     private bool $disableAnimFastForward = false;
     private string $animationResetName = '';
     private bool $ignored = false;
-    private array $variables = [];
     private array $modifications = [];
     private array $gridPosition = [0, 0];
     private int $collectionIndex = 0;
@@ -82,6 +80,16 @@ class Panel extends Element implements \JsonSerializable
 
         foreach ($controls as $control) {
             $element[$name]["controls"][] = $control;
+        }
+
+        if (!empty($dataParent['bindings'])) {
+            $element[$name]["bindings"] = $dataParent['bindings'];
+        }
+        if (!empty($dataParent['variables'])) {
+            $element[$name]["variables"] = array_merge($element[$name]["variables"], $dataParent['variables']);
+        }
+        if (!empty($dataParent['anims'])) {
+            $element[$name]["anims"] = array_merge($element[$name]["anims"], $dataParent['anims']);
         }
 
         return $element;

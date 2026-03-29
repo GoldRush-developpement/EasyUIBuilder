@@ -2,6 +2,7 @@
 
 namespace refaltor\ui\builders;
 
+use refaltor\ui\components\Animation;
 use refaltor\ui\elements\Element;
 
 class Root implements \JsonSerializable
@@ -10,6 +11,7 @@ class Root implements \JsonSerializable
     public array $elements = [];
     public string $namespace;
     private string $title = "";
+    private array $animations = [];
 
     public function __construct(string $namespace) {
         $this->setNamespace($namespace);
@@ -37,7 +39,19 @@ class Root implements \JsonSerializable
 
     public function addElements(array $elements): self {
         foreach ($elements as $element) {
-            $this->elements[] = $elements;
+            $this->elements[] = $element;
+        }
+        return $this;
+    }
+
+    public function addAnimation(Animation $animation): self {
+        $this->animations[] = $animation;
+        return $this;
+    }
+
+    public function addAnimations(array $animations): self {
+        foreach ($animations as $animation) {
+            $this->animations[] = $animation;
         }
         return $this;
     }
@@ -58,6 +72,13 @@ class Root implements \JsonSerializable
             }
             if ($name === "template_button_easy_ui_builder_stack_panel") {
                 $root['template_button_easy_ui_builder_stack_panel'] = $element;
+            }
+        }
+
+        foreach ($this->animations as $animation) {
+            $serialized = $animation->jsonSerialize();
+            foreach ($serialized as $animName => $animData) {
+                $root[$animName] = $animData;
             }
         }
 

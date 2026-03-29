@@ -56,6 +56,16 @@ class Grid extends Element implements \JsonSerializable
             $element[$name]["controls"][] = $control;
         }
 
+        if (!empty($dataParent['bindings'])) {
+            $element[$name]["bindings"] = $dataParent['bindings'];
+        }
+        if (!empty($dataParent['variables'])) {
+            $element[$name]["variables"] = $dataParent['variables'];
+        }
+        if (!empty($dataParent['anims'])) {
+            $element[$name]["anims"] = $dataParent['anims'];
+        }
+
         return $element;
     }
 
