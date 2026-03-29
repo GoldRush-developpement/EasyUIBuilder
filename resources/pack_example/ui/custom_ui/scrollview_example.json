@@ -1,0 +1,1214 @@
+{
+    "namespace": "scrollview_example",
+    "scroll_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "scroll_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "scroll_title": {
+                    "type": "label",
+                    "text": "ScrollView Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "vertical_scroll": {
+                    "type": "scroll_view",
+                    "scroll_speed": 1.5,
+                    "always_listen_to_input": true,
+                    "jump_to_bottom_on_update": false,
+                    "touch_mode": true,
+                    "scrollbar_track_button": false,
+                    "orientation": "vertical",
+                    "size": [
+                        250,
+                        180
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        -80,
+                        10
+                    ],
+                    "controls": [
+                        {
+                            "scroll_content_stack": {
+                                "type": "stack_panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    "100%",
+                                    "default"
+                                ],
+                                "controls": [
+                                    {
+                                        "scroll_item_1": {
+                                            "type": "label",
+                                            "text": "Item #1 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_2": {
+                                            "type": "label",
+                                            "text": "Item #2 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_3": {
+                                            "type": "label",
+                                            "text": "Item #3 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_4": {
+                                            "type": "label",
+                                            "text": "Item #4 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_5": {
+                                            "type": "label",
+                                            "text": "Item #5 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_6": {
+                                            "type": "label",
+                                            "text": "Item #6 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_7": {
+                                            "type": "label",
+                                            "text": "Item #7 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_8": {
+                                            "type": "label",
+                                            "text": "Item #8 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_9": {
+                                            "type": "label",
+                                            "text": "Item #9 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_10": {
+                                            "type": "label",
+                                            "text": "Item #10 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_11": {
+                                            "type": "label",
+                                            "text": "Item #11 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_12": {
+                                            "type": "label",
+                                            "text": "Item #12 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_13": {
+                                            "type": "label",
+                                            "text": "Item #13 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_14": {
+                                            "type": "label",
+                                            "text": "Item #14 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_15": {
+                                            "type": "label",
+                                            "text": "Item #15 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_16": {
+                                            "type": "label",
+                                            "text": "Item #16 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_17": {
+                                            "type": "label",
+                                            "text": "Item #17 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_18": {
+                                            "type": "label",
+                                            "text": "Item #18 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_19": {
+                                            "type": "label",
+                                            "text": "Item #19 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "scroll_item_20": {
+                                            "type": "label",
+                                            "text": "Item #20 - Scrollable content line",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                240,
+                                                20
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "orientation": "vertical"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "horizontal_scroll": {
+                    "type": "scroll_view",
+                    "scroll_speed": 2,
+                    "always_listen_to_input": true,
+                    "jump_to_bottom_on_update": false,
+                    "touch_mode": true,
+                    "scrollbar_track_button": false,
+                    "orientation": "horizontal",
+                    "size": [
+                        250,
+                        60
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        80,
+                        10
+                    ],
+                    "controls": [
+                        {
+                            "h_scroll_content": {
+                                "type": "stack_panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    "default",
+                                    "100%"
+                                ],
+                                "controls": [
+                                    {
+                                        "card_1": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_1": {
+                                                        "type": "label",
+                                                        "text": "Card 1",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.7333333333333333,
+                                                            0.8823529411764706,
+                                                            0.6078431372549019
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_2": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_2": {
+                                                        "type": "label",
+                                                        "text": "Card 2",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.6901960784313725,
+                                                            0.7058823529411765,
+                                                            0.6901960784313725
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_3": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_3": {
+                                                        "type": "label",
+                                                        "text": "Card 3",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.6078431372549019,
+                                                            0.8745098039215686,
+                                                            0.596078431372549
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_4": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_4": {
+                                                        "type": "label",
+                                                        "text": "Card 4",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.9254901960784314,
+                                                            0.7333333333333333,
+                                                            0.7803921568627451
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_5": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_5": {
+                                                        "type": "label",
+                                                        "text": "Card 5",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.7725490196078432,
+                                                            0.6627450980392157,
+                                                            0.9529411764705882
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_6": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_6": {
+                                                        "type": "label",
+                                                        "text": "Card 6",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.9254901960784314,
+                                                            0.6823529411764706,
+                                                            0.8313725490196079
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_7": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_7": {
+                                                        "type": "label",
+                                                        "text": "Card 7",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.5882352941176471,
+                                                            0.6862745098039216,
+                                                            0.9764705882352941
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_8": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_8": {
+                                                        "type": "label",
+                                                        "text": "Card 8",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.6588235294117647,
+                                                            0.9098039215686274,
+                                                            0.9686274509803922
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_9": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_9": {
+                                                        "type": "label",
+                                                        "text": "Card 9",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.596078431372549,
+                                                            0.7607843137254902,
+                                                            0.8980392156862745
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "card_10": {
+                                            "type": "panel",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "layer": 0,
+                                            "alpha": 1,
+                                            "propagate_alpha": false,
+                                            "clips_children": false,
+                                            "allow_clipping": true,
+                                            "clip_offset": [
+                                                0,
+                                                0
+                                            ],
+                                            "clip_state_change_event": "",
+                                            "enable_scissor_test": false,
+                                            "property_bag": [],
+                                            "selected": false,
+                                            "use_child_anchors": false,
+                                            "anims": [],
+                                            "disable_anim_fast_forward": false,
+                                            "animation_reset_name": "",
+                                            "variables": [],
+                                            "size": [
+                                                80,
+                                                50
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "card_label_10": {
+                                                        "type": "label",
+                                                        "text": "Card 10",
+                                                        "font_size": "small",
+                                                        "font_type": "default",
+                                                        "font_scale_factor": 1,
+                                                        "shadow": true,
+                                                        "color": [
+                                                            0.7803921568627451,
+                                                            0.996078431372549,
+                                                            0.7058823529411765
+                                                        ],
+                                                        "anchor_from": "center",
+                                                        "anchor_to": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "orientation": "horizontal"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "chat_scroll": {
+                    "type": "scroll_view",
+                    "scroll_speed": 1,
+                    "always_listen_to_input": true,
+                    "jump_to_bottom_on_update": true,
+                    "touch_mode": true,
+                    "scrollbar_track_button": false,
+                    "orientation": "vertical",
+                    "size": [
+                        200,
+                        100
+                    ],
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle",
+                    "offset": [
+                        0,
+                        -10
+                    ],
+                    "controls": [
+                        {
+                            "chat_content": {
+                                "type": "stack_panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    "100%",
+                                    "default"
+                                ],
+                                "controls": [
+                                    {
+                                        "chat_0": {
+                                            "type": "label",
+                                            "text": "Player1: Hello!",
+                                            "font_size": "small",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": false,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                190,
+                                                16
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "chat_1": {
+                                            "type": "label",
+                                            "text": "Player2: Hey there",
+                                            "font_size": "small",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": false,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                190,
+                                                16
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "chat_2": {
+                                            "type": "label",
+                                            "text": "Player1: GG",
+                                            "font_size": "small",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": false,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                190,
+                                                16
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "chat_3": {
+                                            "type": "label",
+                                            "text": "Server: Welcome!",
+                                            "font_size": "small",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": false,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                190,
+                                                16
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "chat_4": {
+                                            "type": "label",
+                                            "text": "Player3: Hi all",
+                                            "font_size": "small",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": false,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "size": [
+                                                190,
+                                                16
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "orientation": "vertical"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,208 @@
+{
+    "namespace": "screen_example",
+    "modal_screen": {
+        "type": "screen",
+        "render_only_when_topmost": true,
+        "render_game_behind": false,
+        "absorbs_input": true,
+        "is_showing_menu": true,
+        "is_modal": true,
+        "should_steal_mouse": false,
+        "low_frequency_rendering": true,
+        "screen_not_flushable": false,
+        "always_accepts_input": false,
+        "force_render_below": false,
+        "send_telemetry": false,
+        "close_on_player_hurt": false,
+        "cache_screen": false,
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "modal_screen_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "modal_screen_title": {
+                    "type": "label",
+                    "text": "Modal Screen (blocks game)",
+                    "font_size": "large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        20
+                    ]
+                }
+            }
+        ]
+    },
+    "hud_overlay": {
+        "type": "screen",
+        "render_only_when_topmost": false,
+        "render_game_behind": true,
+        "absorbs_input": false,
+        "is_showing_menu": false,
+        "is_modal": false,
+        "should_steal_mouse": false,
+        "low_frequency_rendering": true,
+        "screen_not_flushable": false,
+        "always_accepts_input": false,
+        "force_render_below": true,
+        "send_telemetry": false,
+        "close_on_player_hurt": false,
+        "cache_screen": false,
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "hud_info": {
+                    "type": "label",
+                    "text": "HUD Overlay - Game visible behind",
+                    "font_size": "normal",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        0,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_left",
+                    "anchor_to": "top_left",
+                    "offset": [
+                        5,
+                        5
+                    ]
+                }
+            }
+        ]
+    },
+    "fragile_screen": {
+        "type": "screen",
+        "render_only_when_topmost": true,
+        "render_game_behind": true,
+        "absorbs_input": true,
+        "is_showing_menu": true,
+        "is_modal": false,
+        "should_steal_mouse": false,
+        "low_frequency_rendering": true,
+        "screen_not_flushable": false,
+        "always_accepts_input": false,
+        "force_render_below": false,
+        "send_telemetry": false,
+        "close_on_player_hurt": true,
+        "cache_screen": false,
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "fragile_info": {
+                    "type": "label",
+                    "text": "This screen closes if you take damage!",
+                    "font_size": "large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center"
+                }
+            }
+        ]
+    },
+    "cached_screen": {
+        "type": "screen",
+        "render_only_when_topmost": true,
+        "render_game_behind": false,
+        "absorbs_input": true,
+        "is_showing_menu": true,
+        "is_modal": true,
+        "should_steal_mouse": true,
+        "low_frequency_rendering": true,
+        "screen_not_flushable": false,
+        "always_accepts_input": false,
+        "force_render_below": false,
+        "send_telemetry": false,
+        "close_on_player_hurt": false,
+        "cache_screen": true,
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "cached_info": {
+                    "type": "label",
+                    "text": "Cached & Mouse-Stealing Screen",
+                    "font_size": "large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        0,
+                        1
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center"
+                }
+            }
+        ]
+    }
+}

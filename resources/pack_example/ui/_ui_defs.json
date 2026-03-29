@@ -9,6 +9,17 @@
         "ui\/custom_ui\/grid_example.json",
         "ui\/custom_ui\/stackpanel_example.json",
         "ui\/custom_ui\/full_menu_example.json",
-        "ui\/custom_ui\/color_example.json"
+        "ui\/custom_ui\/color_example.json",
+        "ui\/custom_ui\/toggle_example.json",
+        "ui\/custom_ui\/slider_example.json",
+        "ui\/custom_ui\/editbox_example.json",
+        "ui\/custom_ui\/scrollview_example.json",
+        "ui\/custom_ui\/dropdown_example.json",
+        "ui\/custom_ui\/inputpanel_example.json",
+        "ui\/custom_ui\/screen_example.json",
+        "ui\/custom_ui\/customrender_example.json",
+        "ui\/custom_ui\/binding_example.json",
+        "ui\/custom_ui\/animation_example.json",
+        "ui\/custom_ui\/variable_example.json"
     ]
 }

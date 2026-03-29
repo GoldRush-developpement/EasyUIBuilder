@@ -1,0 +1,448 @@
+{
+    "namespace": "variable_example",
+    "variable_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "variable_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "variable_title": {
+                    "type": "label",
+                    "text": "Variable Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "variable_stack": {
+                    "type": "stack_panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        300,
+                        250
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "platform_panel": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [
+                                    {
+                                        "requires": "",
+                                        "$panel_width": 400,
+                                        "$panel_height": 300
+                                    },
+                                    {
+                                        "requires": "",
+                                        "$panel_width": 200,
+                                        "$panel_height": 150
+                                    },
+                                    {
+                                        "requires": "(not  and not )",
+                                        "$panel_width": 300,
+                                        "$panel_height": 200
+                                    },
+                                    {
+                                        "requires": "",
+                                        "$panel_width": 400,
+                                        "$panel_height": 300
+                                    },
+                                    {
+                                        "requires": "",
+                                        "$panel_width": 200,
+                                        "$panel_height": 150
+                                    },
+                                    {
+                                        "requires": "(not  and not )",
+                                        "$panel_width": 300,
+                                        "$panel_height": 200
+                                    }
+                                ],
+                                "size": [
+                                    "$panel_width",
+                                    "$panel_height"
+                                ],
+                                "controls": [
+                                    {
+                                        "platform_label": {
+                                            "type": "label",
+                                            "text": "Size adapts to platform!",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                0,
+                                                1,
+                                                1
+                                            ],
+                                            "anchor_from": "center",
+                                            "anchor_to": "center"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "input_mode_panel": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [
+                                    {
+                                        "requires": "",
+                                        "$action_text": "Press A to continue",
+                                        "$text_color": [
+                                            0,
+                                            1,
+                                            0
+                                        ]
+                                    },
+                                    {
+                                        "requires": "",
+                                        "$action_text": "Tap to continue",
+                                        "$text_color": [
+                                            0,
+                                            1,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "requires": "(not  and not )",
+                                        "$action_text": "Click to continue",
+                                        "$text_color": [
+                                            1,
+                                            1,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "requires": "",
+                                        "$action_text": "Press A to continue",
+                                        "$text_color": [
+                                            0,
+                                            1,
+                                            0
+                                        ]
+                                    },
+                                    {
+                                        "requires": "",
+                                        "$action_text": "Tap to continue",
+                                        "$text_color": [
+                                            0,
+                                            1,
+                                            1
+                                        ]
+                                    },
+                                    {
+                                        "requires": "(not  and not )",
+                                        "$action_text": "Click to continue",
+                                        "$text_color": [
+                                            1,
+                                            1,
+                                            1
+                                        ]
+                                    }
+                                ],
+                                "size": [
+                                    280,
+                                    40
+                                ],
+                                "controls": [
+                                    {
+                                        "input_label": {
+                                            "type": "label",
+                                            "text": "$action_text",
+                                            "font_size": "large",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                1,
+                                                1
+                                            ],
+                                            "anchor_from": "center",
+                                            "anchor_to": "center"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "wide_screen_only": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [
+                                    {
+                                        "requires": "",
+                                        "$show_extra_info": true
+                                    },
+                                    {
+                                        "requires": "(not )",
+                                        "$show_extra_info": false
+                                    },
+                                    {
+                                        "requires": "",
+                                        "$show_extra_info": true
+                                    },
+                                    {
+                                        "requires": "(not )",
+                                        "$show_extra_info": false
+                                    }
+                                ],
+                                "size": [
+                                    280,
+                                    30
+                                ],
+                                "controls": [
+                                    {
+                                        "wide_label": {
+                                            "type": "label",
+                                            "text": "Desktop-only extra info panel",
+                                            "font_size": "small",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                0.8,
+                                                0.8,
+                                                0.3
+                                            ],
+                                            "anchor_from": "center",
+                                            "anchor_to": "center"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "multi_var_panel": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [
+                                    {
+                                        "requires": "$trial_screen",
+                                        "$mv_width": 150,
+                                        "$mv_height": 80,
+                                        "$mv_text": "Trial Mode"
+                                    },
+                                    {
+                                        "requires": "(not $trial_screen)",
+                                        "$mv_width": 250,
+                                        "$mv_height": 60,
+                                        "$mv_text": "Full Version"
+                                    },
+                                    {
+                                        "requires": "$trial_screen",
+                                        "$mv_width": 150,
+                                        "$mv_height": 80,
+                                        "$mv_text": "Trial Mode"
+                                    },
+                                    {
+                                        "requires": "(not $trial_screen)",
+                                        "$mv_width": 250,
+                                        "$mv_height": 60,
+                                        "$mv_text": "Full Version"
+                                    }
+                                ],
+                                "size": [
+                                    "$mv_width",
+                                    "$mv_height"
+                                ],
+                                "controls": [
+                                    {
+                                        "multi_var_label": {
+                                            "type": "label",
+                                            "text": "$mv_text",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                0,
+                                                1
+                                            ],
+                                            "anchor_from": "center",
+                                            "anchor_to": "center"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "orientation": "vertical"
+                }
+            }
+        ]
+    }
+}

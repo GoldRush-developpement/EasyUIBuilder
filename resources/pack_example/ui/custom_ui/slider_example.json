@@ -1,0 +1,262 @@
+{
+    "namespace": "slider_example",
+    "slider_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "slider_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "slider_title": {
+                    "type": "label",
+                    "text": "Slider Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "vertical_slider": {
+                    "type": "slider",
+                    "slider_track_button": "button.menu_select",
+                    "slider_steps": 10,
+                    "slider_direction": "vertical",
+                    "slider_timeout": 0,
+                    "slider_select_on_hover": false,
+                    "default_control": 0.5,
+                    "slider_name": "slider_vertical",
+                    "size": [
+                        20,
+                        120
+                    ],
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle",
+                    "offset": [
+                        -20,
+                        0
+                    ]
+                }
+            },
+            {
+                "slider_stack": {
+                    "type": "stack_panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        300,
+                        250
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "volume_label": {
+                                "type": "label",
+                                "text": "Volume",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "volume_slider": {
+                                "type": "slider",
+                                "slider_track_button": "button.menu_select",
+                                "slider_steps": 20,
+                                "slider_direction": "horizontal",
+                                "slider_timeout": 0,
+                                "slider_select_on_hover": true,
+                                "default_control": 0.8,
+                                "slider_name": "slider_volume",
+                                "size": [
+                                    280,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "brightness_label": {
+                                "type": "label",
+                                "text": "Brightness",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "brightness_slider": {
+                                "type": "slider",
+                                "slider_track_button": "button.menu_select",
+                                "slider_steps": 10,
+                                "slider_direction": "horizontal",
+                                "slider_timeout": 0,
+                                "slider_select_on_hover": false,
+                                "default_control": 0.5,
+                                "slider_name": "slider_brightness",
+                                "background_control": "slider_bg_control",
+                                "background_hover_control": "slider_bg_hover_control",
+                                "progress_control": "slider_progress_control",
+                                "slider_box_control": "slider_thumb",
+                                "slider_box_hover_control": "slider_thumb_hover",
+                                "size": [
+                                    280,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "fov_label": {
+                                "type": "label",
+                                "text": "Field of View",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "fov_slider": {
+                                "type": "slider",
+                                "slider_track_button": "button.menu_select",
+                                "slider_steps": 30,
+                                "slider_direction": "horizontal",
+                                "slider_timeout": 0.3,
+                                "slider_select_on_hover": false,
+                                "default_control": 0.5,
+                                "slider_small_decrease_button": "button.menu_left",
+                                "slider_small_increase_button": "button.menu_right",
+                                "slider_name": "slider_fov",
+                                "size": [
+                                    280,
+                                    20
+                                ]
+                            }
+                        }
+                    ],
+                    "orientation": "vertical"
+                }
+            }
+        ]
+    }
+}

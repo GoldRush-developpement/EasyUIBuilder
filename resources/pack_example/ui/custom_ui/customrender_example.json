@@ -1,0 +1,300 @@
+{
+    "namespace": "customrender_example",
+    "render_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "render_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "render_title": {
+                    "type": "label",
+                    "text": "Custom Render Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "player_doll": {
+                    "type": "custom",
+                    "renderer": "paper_doll_renderer",
+                    "property_bag": {
+                        "#entity_type": "player",
+                        "#camera_rotation": [
+                            20,
+                            -20
+                        ],
+                        "#camera_tilt": [
+                            0,
+                            0
+                        ]
+                    },
+                    "color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        100,
+                        140
+                    ],
+                    "anchor_from": "left_middle",
+                    "anchor_to": "left_middle",
+                    "offset": [
+                        20,
+                        0
+                    ]
+                }
+            },
+            {
+                "item_display": {
+                    "type": "custom",
+                    "renderer": "inventory_item_renderer",
+                    "property_bag": {
+                        "#item_id_aux": 1
+                    },
+                    "color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        48,
+                        48
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        -40
+                    ]
+                }
+            },
+            {
+                "item_label": {
+                    "type": "label",
+                    "text": "Inventory Item Renderer",
+                    "font_size": "small",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": false,
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        -10
+                    ]
+                }
+            },
+            {
+                "bg_gradient": {
+                    "type": "custom",
+                    "renderer": "gradient_renderer",
+                    "property_bag": {
+                        "#gradient_color_1": [
+                            0,
+                            0,
+                            0,
+                            0.8
+                        ],
+                        "#gradient_color_2": [
+                            0,
+                            0,
+                            0.2,
+                            0.4
+                        ],
+                        "#gradient_direction": "vertical"
+                    },
+                    "color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        200,
+                        100
+                    ],
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle",
+                    "offset": [
+                        -20,
+                        -30
+                    ]
+                }
+            },
+            {
+                "gradient_label": {
+                    "type": "label",
+                    "text": "Gradient Renderer",
+                    "font_size": "small",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": false,
+                    "color": [
+                        0,
+                        1,
+                        1
+                    ],
+                    "anchor_from": "right_middle",
+                    "anchor_to": "right_middle",
+                    "offset": [
+                        -70,
+                        30
+                    ]
+                }
+            },
+            {
+                "player_nametag": {
+                    "type": "custom",
+                    "renderer": "name_tag_renderer",
+                    "property_bag": {
+                        "#playername": "Steve"
+                    },
+                    "primary_color": "white",
+                    "enable_profanity_filter": true,
+                    "color": [
+                        1,
+                        1,
+                        1,
+                        1
+                    ],
+                    "size": [
+                        120,
+                        20
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "offset": [
+                        0,
+                        40
+                    ]
+                }
+            },
+            {
+                "screen_vignette": {
+                    "type": "custom",
+                    "renderer": "vignette_renderer",
+                    "color": [
+                        0,
+                        0,
+                        0,
+                        0.5
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": 10
+                }
+            },
+            {
+                "splash_text": {
+                    "type": "custom",
+                    "renderer": "splash_text_renderer",
+                    "property_bag": {
+                        "#splash_text": "EasyUIBuilder is awesome!"
+                    },
+                    "color": [
+                        1,
+                        1,
+                        0,
+                        1
+                    ],
+                    "size": [
+                        200,
+                        30
+                    ],
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle",
+                    "offset": [
+                        0,
+                        -15
+                    ]
+                }
+            }
+        ]
+    }
+}

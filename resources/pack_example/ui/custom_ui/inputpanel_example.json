@@ -1,0 +1,233 @@
+{
+    "namespace": "inputpanel_example",
+    "input_panel_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "input_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "input_title": {
+                    "type": "label",
+                    "text": "InputPanel Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "modal_dialog": {
+                    "type": "input_panel",
+                    "modal": true,
+                    "inline_modal": false,
+                    "always_listen_to_input": true,
+                    "focus_enabled": true,
+                    "gesture_tracking_button": false,
+                    "always_handle_pointer": false,
+                    "default_focus_precedence": true,
+                    "focus_identifier": "modal_focus",
+                    "button_mappings": [
+                        {
+                            "from_button_id": "button.menu_cancel",
+                            "to_button_id": "button.menu_exit",
+                            "mapping_type": "pressed",
+                            "input_mode_condition": "not_gaze"
+                        },
+                        {
+                            "from_button_id": "button.menu_select",
+                            "to_button_id": "button.menu_ok",
+                            "mapping_type": "pressed",
+                            "input_mode_condition": "not_gaze"
+                        }
+                    ],
+                    "size": [
+                        250,
+                        180
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "modal_label": {
+                                "type": "label",
+                                "text": "This is a modal dialog",
+                                "font_size": "large",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "nav_panel": {
+                    "type": "input_panel",
+                    "modal": false,
+                    "inline_modal": false,
+                    "always_listen_to_input": false,
+                    "focus_enabled": true,
+                    "gesture_tracking_button": false,
+                    "always_handle_pointer": false,
+                    "default_focus_precedence": false,
+                    "focus_identifier": "nav_focus",
+                    "focus_change_up": "button_above",
+                    "focus_change_down": "button_below",
+                    "focus_change_left": "button_left",
+                    "focus_change_right": "button_right",
+                    "size": [
+                        200,
+                        60
+                    ],
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "offset": [
+                        10,
+                        -10
+                    ],
+                    "controls": [
+                        {
+                            "nav_label": {
+                                "type": "label",
+                                "text": "Focusable Panel",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    0,
+                                    1,
+                                    1
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "gesture_panel": {
+                    "type": "input_panel",
+                    "modal": false,
+                    "inline_modal": false,
+                    "always_listen_to_input": true,
+                    "focus_enabled": true,
+                    "gesture_tracking_button": true,
+                    "always_handle_pointer": true,
+                    "default_focus_precedence": false,
+                    "size": [
+                        200,
+                        60
+                    ],
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "offset": [
+                        -10,
+                        -10
+                    ],
+                    "controls": [
+                        {
+                            "gesture_label": {
+                                "type": "label",
+                                "text": "Touch\/Drag Area",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    0,
+                                    1,
+                                    0
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

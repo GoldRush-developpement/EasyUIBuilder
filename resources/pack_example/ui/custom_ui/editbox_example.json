@@ -1,0 +1,308 @@
+{
+    "namespace": "editbox_example",
+    "editbox_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "editbox_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "editbox_title": {
+                    "type": "label",
+                    "text": "EditBox Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "editbox_stack": {
+                    "type": "stack_panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        300,
+                        250
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "username_label": {
+                                "type": "label",
+                                "text": "Username:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    18
+                                ]
+                            }
+                        },
+                        {
+                            "username_input": {
+                                "type": "edit_box",
+                                "max_length": 32,
+                                "text_box_visible": true,
+                                "enabled_newline": false,
+                                "text_type": "ExtendedASCII",
+                                "text_color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "locked_color": [
+                                    0.5,
+                                    0.5,
+                                    0.5
+                                ],
+                                "virtual": false,
+                                "text_box_name": "username_field",
+                                "place_holder_text": "Enter your username...",
+                                "size": [
+                                    280,
+                                    25
+                                ]
+                            }
+                        },
+                        {
+                            "seed_label": {
+                                "type": "label",
+                                "text": "World Seed:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    18
+                                ]
+                            }
+                        },
+                        {
+                            "seed_input": {
+                                "type": "edit_box",
+                                "max_length": 20,
+                                "text_box_visible": true,
+                                "enabled_newline": false,
+                                "text_type": "NumberChars",
+                                "text_color": [
+                                    0,
+                                    1,
+                                    1
+                                ],
+                                "locked_color": [
+                                    0.5,
+                                    0.5,
+                                    0.5
+                                ],
+                                "virtual": false,
+                                "text_box_name": "seed_field",
+                                "place_holder_text": "Enter seed number...",
+                                "size": [
+                                    280,
+                                    25
+                                ]
+                            }
+                        },
+                        {
+                            "message_label": {
+                                "type": "label",
+                                "text": "Message:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    18
+                                ]
+                            }
+                        },
+                        {
+                            "message_input": {
+                                "type": "edit_box",
+                                "max_length": 256,
+                                "text_box_visible": true,
+                                "enabled_newline": false,
+                                "text_type": "ExtendedASCII",
+                                "text_color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "locked_color": [
+                                    0.5,
+                                    0.5,
+                                    0.5
+                                ],
+                                "virtual": false,
+                                "text_box_name": "message_field",
+                                "place_holder_text": "Type a message...",
+                                "size": [
+                                    280,
+                                    25
+                                ]
+                            }
+                        },
+                        {
+                            "locked_label": {
+                                "type": "label",
+                                "text": "Locked Field:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": false,
+                                "color": [
+                                    0.6,
+                                    0.6,
+                                    0.6
+                                ],
+                                "size": [
+                                    300,
+                                    18
+                                ]
+                            }
+                        },
+                        {
+                            "locked_input": {
+                                "type": "edit_box",
+                                "max_length": 256,
+                                "text_box_visible": true,
+                                "enabled_newline": false,
+                                "text_type": "ExtendedASCII",
+                                "text_color": [
+                                    0.6,
+                                    0.6,
+                                    0.6
+                                ],
+                                "locked_color": [
+                                    0.4,
+                                    0.4,
+                                    0.4
+                                ],
+                                "virtual": false,
+                                "text_box_name": "locked_field",
+                                "place_holder_text": "This field is locked",
+                                "size": [
+                                    280,
+                                    25
+                                ]
+                            }
+                        }
+                    ],
+                    "orientation": "vertical"
+                }
+            }
+        ]
+    }
+}

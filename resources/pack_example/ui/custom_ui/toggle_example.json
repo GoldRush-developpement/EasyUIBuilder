@@ -1,0 +1,319 @@
+{
+    "namespace": "toggle_example",
+    "toggle_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "toggle_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "toggle_title": {
+                    "type": "label",
+                    "text": "Toggle Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "toggle_stack": {
+                    "type": "stack_panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        250,
+                        200
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "music_toggle": {
+                                "type": "toggle",
+                                "toggle_name": "toggle_music",
+                                "toggle_default_state": true,
+                                "toggle_group_default_tab": "",
+                                "toggle_group_forced_index": "",
+                                "reset_on_focus_lost": false,
+                                "toggle_on_button": "button.menu_select",
+                                "toggle_off_button": "button.menu_select",
+                                "enable_directional_toggling": true,
+                                "radio_toggle_group": "",
+                                "toggle_tab_index": 0,
+                                "sound_name": "random.click",
+                                "sound_volume": 0.8,
+                                "sound_pitch": 1,
+                                "size": [
+                                    150,
+                                    30
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center"
+                            }
+                        },
+                        {
+                            "particles_toggle": {
+                                "type": "toggle",
+                                "toggle_name": "toggle_particles",
+                                "toggle_default_state": false,
+                                "toggle_group_default_tab": "",
+                                "toggle_group_forced_index": "",
+                                "reset_on_focus_lost": false,
+                                "toggle_on_button": "button.menu_select",
+                                "toggle_off_button": "button.menu_select",
+                                "enable_directional_toggling": true,
+                                "radio_toggle_group": "",
+                                "toggle_tab_index": 0,
+                                "sound_name": "random.click",
+                                "sound_volume": 1,
+                                "sound_pitch": 1,
+                                "checked_control": "checked_image",
+                                "unchecked_control": "unchecked_image",
+                                "checked_hover_control": "checked_hover_image",
+                                "unchecked_hover_control": "unchecked_hover_image",
+                                "size": [
+                                    150,
+                                    30
+                                ],
+                                "anchor_from": "center",
+                                "anchor_to": "center"
+                            }
+                        },
+                        {
+                            "difficulty_label": {
+                                "type": "label",
+                                "text": "Difficulty:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    250,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "radio_group": {
+                                "type": "stack_panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    "100%",
+                                    30
+                                ],
+                                "controls": [
+                                    {
+                                        "easy_radio": {
+                                            "type": "toggle",
+                                            "toggle_name": "difficulty_easy",
+                                            "toggle_default_state": true,
+                                            "toggle_group_default_tab": "",
+                                            "toggle_group_forced_index": "",
+                                            "reset_on_focus_lost": false,
+                                            "toggle_on_button": "button.menu_select",
+                                            "toggle_off_button": "button.menu_select",
+                                            "enable_directional_toggling": true,
+                                            "radio_toggle_group": "difficulty_group",
+                                            "toggle_tab_index": 0,
+                                            "sound_name": "random.click",
+                                            "sound_volume": 1,
+                                            "sound_pitch": 1,
+                                            "size": [
+                                                80,
+                                                25
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "normal_radio": {
+                                            "type": "toggle",
+                                            "toggle_name": "difficulty_normal",
+                                            "toggle_default_state": false,
+                                            "toggle_group_default_tab": "",
+                                            "toggle_group_forced_index": "",
+                                            "reset_on_focus_lost": false,
+                                            "toggle_on_button": "button.menu_select",
+                                            "toggle_off_button": "button.menu_select",
+                                            "enable_directional_toggling": true,
+                                            "radio_toggle_group": "difficulty_group",
+                                            "toggle_tab_index": 1,
+                                            "sound_name": "random.click",
+                                            "sound_volume": 1,
+                                            "sound_pitch": 1,
+                                            "size": [
+                                                80,
+                                                25
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "hard_radio": {
+                                            "type": "toggle",
+                                            "toggle_name": "difficulty_hard",
+                                            "toggle_default_state": false,
+                                            "toggle_group_default_tab": "",
+                                            "toggle_group_forced_index": "",
+                                            "reset_on_focus_lost": false,
+                                            "toggle_on_button": "button.menu_select",
+                                            "toggle_off_button": "button.menu_select",
+                                            "enable_directional_toggling": true,
+                                            "radio_toggle_group": "difficulty_group",
+                                            "toggle_tab_index": 2,
+                                            "sound_name": "random.click",
+                                            "sound_volume": 1,
+                                            "sound_pitch": 1,
+                                            "size": [
+                                                80,
+                                                25
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "orientation": "horizontal"
+                            }
+                        },
+                        {
+                            "temp_toggle": {
+                                "type": "toggle",
+                                "toggle_name": "toggle_temporary",
+                                "toggle_default_state": false,
+                                "toggle_group_default_tab": "",
+                                "toggle_group_forced_index": "",
+                                "reset_on_focus_lost": true,
+                                "toggle_on_button": "button.menu_select",
+                                "toggle_off_button": "button.menu_select",
+                                "enable_directional_toggling": false,
+                                "radio_toggle_group": "",
+                                "toggle_tab_index": 0,
+                                "sound_name": "random.click",
+                                "sound_volume": 1,
+                                "sound_pitch": 1,
+                                "size": [
+                                    150,
+                                    30
+                                ]
+                            }
+                        }
+                    ],
+                    "orientation": "vertical"
+                }
+            }
+        ]
+    }
+}

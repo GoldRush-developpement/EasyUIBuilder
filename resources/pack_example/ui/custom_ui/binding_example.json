@@ -1,0 +1,382 @@
+{
+    "namespace": "binding_example",
+    "binding_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "binding_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "bound_title": {
+                    "type": "label",
+                    "text": "#title_text",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#title_text",
+                            "binding_name_override": "#title_text"
+                        }
+                    ]
+                }
+            },
+            {
+                "binding_stack": {
+                    "type": "stack_panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        300,
+                        220
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "player_name_label": {
+                                "type": "label",
+                                "text": "#localplayername",
+                                "font_size": "large",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    0,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    25
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "global",
+                                        "binding_name": "#localplayername"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "conditional_panel": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    280,
+                                    30
+                                ],
+                                "controls": [
+                                    {
+                                        "conditional_label": {
+                                            "type": "label",
+                                            "text": "Visible only when title matches!",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                0,
+                                                1,
+                                                0
+                                            ],
+                                            "anchor_from": "center",
+                                            "anchor_to": "center"
+                                        }
+                                    }
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(#title_text = 'BINDING_EXAMPLE')",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "collection_label": {
+                                "type": "label",
+                                "text": "#form_button_text",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": false,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    25
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "collection",
+                                        "binding_name": "#form_button_text",
+                                        "binding_collection_name": "form_buttons"
+                                    },
+                                    {
+                                        "binding_type": "collection_details",
+                                        "binding_collection_name": "form_buttons"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "source_data_panel": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    280,
+                                    25
+                                ],
+                                "controls": [
+                                    {
+                                        "source_bound_label": {
+                                            "type": "label",
+                                            "text": "Bound from source",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": false,
+                                            "color": [
+                                                1,
+                                                0,
+                                                1
+                                            ],
+                                            "anchor_from": "center",
+                                            "anchor_to": "center",
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_control_name": "player_name_label",
+                                                    "source_property_name": "#localplayername",
+                                                    "target_property_name": "#text"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "once_bound_label": {
+                                "type": "label",
+                                "text": "#online_player_count",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": false,
+                                "color": [
+                                    1,
+                                    0.5,
+                                    0
+                                ],
+                                "size": [
+                                    300,
+                                    25
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "global",
+                                        "binding_name": "#online_player_count",
+                                        "binding_condition": "once"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "shorthand_visible": {
+                                "type": "panel",
+                                "visible": true,
+                                "enabled": true,
+                                "layer": 0,
+                                "alpha": 1,
+                                "propagate_alpha": false,
+                                "clips_children": false,
+                                "allow_clipping": true,
+                                "clip_offset": [
+                                    0,
+                                    0
+                                ],
+                                "clip_state_change_event": "",
+                                "enable_scissor_test": false,
+                                "property_bag": [],
+                                "selected": false,
+                                "use_child_anchors": false,
+                                "anims": [],
+                                "disable_anim_fast_forward": false,
+                                "animation_reset_name": "",
+                                "variables": [],
+                                "size": [
+                                    280,
+                                    30
+                                ],
+                                "controls": [
+                                    {
+                                        "survival_only": {
+                                            "type": "label",
+                                            "text": "Only visible in Survival!",
+                                            "font_size": "normal",
+                                            "font_type": "default",
+                                            "font_scale_factor": 1,
+                                            "shadow": true,
+                                            "color": [
+                                                1,
+                                                0,
+                                                0
+                                            ],
+                                            "anchor_from": "center",
+                                            "anchor_to": "center"
+                                        }
+                                    }
+                                ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#is_creative_mode))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "orientation": "vertical"
+                }
+            }
+        ]
+    }
+}

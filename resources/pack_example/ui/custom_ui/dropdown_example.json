@@ -1,0 +1,220 @@
+{
+    "namespace": "dropdown_example",
+    "dropdown_container": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "dropdown_bg": {
+                    "type": "image",
+                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "allow_debug_missing_texture": true,
+                    "uv": [
+                        0,
+                        0
+                    ],
+                    "uv_size": [
+                        0,
+                        0
+                    ],
+                    "texture_file_system": "InUserPackage",
+                    "nineslice_size": 4,
+                    "tiled": false,
+                    "tiled_scale": [
+                        1,
+                        1
+                    ],
+                    "clip_direction": "left",
+                    "clip_ratio": 0,
+                    "clip_pixelperfect": false,
+                    "keep_ratio": true,
+                    "bilinear": false,
+                    "fill": false,
+                    "fit_to_width": null,
+                    "zip_folder": "",
+                    "grayscale": false,
+                    "force_texture_reload": false,
+                    "base_size": [
+                        0,
+                        0
+                    ],
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": -1
+                }
+            },
+            {
+                "dropdown_title": {
+                    "type": "label",
+                    "text": "Dropdown Examples",
+                    "font_size": "extra_large",
+                    "font_type": "default",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "color": [
+                        1,
+                        1,
+                        0
+                    ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "offset": [
+                        0,
+                        10
+                    ]
+                }
+            },
+            {
+                "dropdown_stack": {
+                    "type": "stack_panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        300,
+                        200
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "controls": [
+                        {
+                            "gamemode_label": {
+                                "type": "label",
+                                "text": "Game Mode:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "gamemode_dropdown": {
+                                "type": "dropdown",
+                                "dropdown_name": "dropdown_gamemode",
+                                "dropdown_content_control": "gamemode_content",
+                                "dropdown_area": "gamemode_area",
+                                "size": [
+                                    280,
+                                    25
+                                ]
+                            }
+                        },
+                        {
+                            "difficulty_dropdown_label": {
+                                "type": "label",
+                                "text": "Difficulty:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "difficulty_dropdown": {
+                                "type": "dropdown",
+                                "dropdown_name": "dropdown_difficulty",
+                                "dropdown_content_control": "difficulty_content",
+                                "size": [
+                                    280,
+                                    25
+                                ]
+                            }
+                        },
+                        {
+                            "lang_label": {
+                                "type": "label",
+                                "text": "Language:",
+                                "font_size": "normal",
+                                "font_type": "default",
+                                "font_scale_factor": 1,
+                                "shadow": true,
+                                "color": [
+                                    1,
+                                    1,
+                                    1
+                                ],
+                                "size": [
+                                    300,
+                                    20
+                                ]
+                            }
+                        },
+                        {
+                            "language_dropdown": {
+                                "type": "dropdown",
+                                "dropdown_name": "dropdown_language",
+                                "dropdown_content_control": "language_content",
+                                "dropdown_scroll_content_panel": "language_scroll_panel",
+                                "size": [
+                                    280,
+                                    25
+                                ]
+                            }
+                        }
+                    ],
+                    "orientation": "vertical"
+                }
+            }
+        ]
+    }
+}
