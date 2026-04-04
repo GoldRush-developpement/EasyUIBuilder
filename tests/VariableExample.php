@@ -55,19 +55,19 @@ class VariableExample implements RootBuild
         $platformPanel = Panel::create("platform_panel")
             ->setCustomSize(['$panel_width', '$panel_height'])
             ->addVariable(
-                Variable::when("$is_holographic", [
+                Variable::when('$is_holographic', [
                     '$panel_width' => 400,
                     '$panel_height' => 300,
                 ])
             )
             ->addVariable(
-                Variable::when("$pocket_screen", [
+                Variable::when('$pocket_screen', [
                     '$panel_width' => 200,
                     '$panel_height' => 150,
                 ])
             )
             ->addVariable(
-                Variable::when("(not $is_holographic and not $pocket_screen)", [
+                Variable::when('(not $is_holographic and not $pocket_screen)', [
                     '$panel_width' => 300,
                     '$panel_height' => 200,
                 ])
@@ -86,19 +86,19 @@ class VariableExample implements RootBuild
         $inputPanel = Panel::create("input_mode_panel")
             ->setSize(280, 40)
             ->addVariable(
-                Variable::when("$is_using_gamepad", [
+                Variable::when('$is_using_gamepad', [
                     '$action_text' => "Press A to continue",
                     '$text_color' => BasicColor::green(),
                 ])
             )
             ->addVariable(
-                Variable::when("$touch", [
+                Variable::when('$touch', [
                     '$action_text' => "Tap to continue",
                     '$text_color' => BasicColor::cyan(),
                 ])
             )
             ->addVariable(
-                Variable::when("(not $is_using_gamepad and not $touch)", [
+                Variable::when('(not $is_using_gamepad and not $touch)', [
                     '$action_text' => "Click to continue",
                     '$text_color' => BasicColor::white(),
                 ])
@@ -116,12 +116,12 @@ class VariableExample implements RootBuild
         $widePanel = Panel::create("wide_screen_only")
             ->setSize(280, 30)
             ->addVariable(
-                Variable::when("$desktop_screen", [
+                Variable::when('$desktop_screen', [
                     '$show_extra_info' => true,
                 ])
             )
             ->addVariable(
-                Variable::when("(not $desktop_screen)", [
+                Variable::when('(not $desktop_screen)', [
                     '$show_extra_info' => false,
                 ])
             );

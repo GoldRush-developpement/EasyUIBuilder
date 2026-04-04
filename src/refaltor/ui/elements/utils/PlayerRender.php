@@ -17,7 +17,7 @@ class PlayerRender extends Element implements  \JsonSerializable
     }
 
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $dataParent = parent::jsonSerialize();
         $propertiesExtra = $dataParent['properties_extra'];

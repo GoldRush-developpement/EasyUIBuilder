@@ -52,7 +52,7 @@ class Dropdown extends Element implements \JsonSerializable
         return $this;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $dataParent = parent::jsonSerialize();
         $propertiesExtra = $dataParent['properties_extra'];

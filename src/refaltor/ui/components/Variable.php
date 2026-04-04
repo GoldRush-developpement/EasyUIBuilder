@@ -41,7 +41,7 @@ class Variable implements \JsonSerializable
         return $this;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = [
             "requires" => $this->condition,

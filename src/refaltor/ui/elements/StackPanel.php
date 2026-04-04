@@ -17,7 +17,7 @@ class StackPanel extends Panel implements \JsonSerializable
         return new self($name, "");
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         if (!is_null($this->extend)) {
             $name = $this->name . "@" . $this->extend;

@@ -1,0 +1,37 @@
+{
+    "name": "refaltor/easy-ui-builder",
+    "description": "PHP library for generating Minecraft Bedrock Edition JSON UI files using a fluent builder pattern",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "minecraft",
+        "bedrock",
+        "json-ui",
+        "ui-builder",
+        "resource-pack"
+    ],
+    "authors": [
+        {
+            "name": "Refaltor77",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "refaltor\\ui\\": "src/refaltor/ui/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "refaltor\\roots\\": "tests/"
+        }
+    },
+    "scripts": {
+        "generate": "php start.php"
+    },
+    "minimum-stability": "stable"
+}

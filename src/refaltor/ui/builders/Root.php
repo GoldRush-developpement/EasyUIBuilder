@@ -56,7 +56,7 @@ class Root implements \JsonSerializable
         return $this;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $root = ['namespace' => $this->namespace];
 

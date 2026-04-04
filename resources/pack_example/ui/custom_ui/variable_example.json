@@ -143,32 +143,32 @@
                                 "animation_reset_name": "",
                                 "variables": [
                                     {
-                                        "requires": "",
+                                        "requires": "$is_holographic",
                                         "$panel_width": 400,
                                         "$panel_height": 300
                                     },
                                     {
-                                        "requires": "",
+                                        "requires": "$pocket_screen",
                                         "$panel_width": 200,
                                         "$panel_height": 150
                                     },
                                     {
-                                        "requires": "(not  and not )",
+                                        "requires": "(not $is_holographic and not $pocket_screen)",
                                         "$panel_width": 300,
                                         "$panel_height": 200
                                     },
                                     {
-                                        "requires": "",
+                                        "requires": "$is_holographic",
                                         "$panel_width": 400,
                                         "$panel_height": 300
                                     },
                                     {
-                                        "requires": "",
+                                        "requires": "$pocket_screen",
                                         "$panel_width": 200,
                                         "$panel_height": 150
                                     },
                                     {
-                                        "requires": "(not  and not )",
+                                        "requires": "(not $is_holographic and not $pocket_screen)",
                                         "$panel_width": 300,
                                         "$panel_height": 200
                                     }
@@ -222,7 +222,7 @@
                                 "animation_reset_name": "",
                                 "variables": [
                                     {
-                                        "requires": "",
+                                        "requires": "$is_using_gamepad",
                                         "$action_text": "Press A to continue",
                                         "$text_color": [
                                             0,
@@ -231,7 +231,7 @@
                                         ]
                                     },
                                     {
-                                        "requires": "",
+                                        "requires": "$touch",
                                         "$action_text": "Tap to continue",
                                         "$text_color": [
                                             0,
@@ -240,7 +240,7 @@
                                         ]
                                     },
                                     {
-                                        "requires": "(not  and not )",
+                                        "requires": "(not $is_using_gamepad and not $touch)",
                                         "$action_text": "Click to continue",
                                         "$text_color": [
                                             1,
@@ -249,7 +249,7 @@
                                         ]
                                     },
                                     {
-                                        "requires": "",
+                                        "requires": "$is_using_gamepad",
                                         "$action_text": "Press A to continue",
                                         "$text_color": [
                                             0,
@@ -258,7 +258,7 @@
                                         ]
                                     },
                                     {
-                                        "requires": "",
+                                        "requires": "$touch",
                                         "$action_text": "Tap to continue",
                                         "$text_color": [
                                             0,
@@ -267,7 +267,7 @@
                                         ]
                                     },
                                     {
-                                        "requires": "(not  and not )",
+                                        "requires": "(not $is_using_gamepad and not $touch)",
                                         "$action_text": "Click to continue",
                                         "$text_color": [
                                             1,
@@ -325,19 +325,19 @@
                                 "animation_reset_name": "",
                                 "variables": [
                                     {
-                                        "requires": "",
+                                        "requires": "$desktop_screen",
                                         "$show_extra_info": true
                                     },
                                     {
-                                        "requires": "(not )",
+                                        "requires": "(not $desktop_screen)",
                                         "$show_extra_info": false
                                     },
                                     {
-                                        "requires": "",
+                                        "requires": "$desktop_screen",
                                         "$show_extra_info": true
                                     },
                                     {
-                                        "requires": "(not )",
+                                        "requires": "(not $desktop_screen)",
                                         "$show_extra_info": false
                                     }
                                 ],

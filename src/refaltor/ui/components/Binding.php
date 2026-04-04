@@ -130,7 +130,7 @@ class Binding implements \JsonSerializable
         return $this;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = [
             "binding_type" => $this->bindingType,

@@ -56,7 +56,7 @@ class RegisterHelper
     }
 
 
-    public function sendLog(string $text, string $sender = null): void
+    public function sendLog(string $text, ?string $sender = null): void
     {
         switch ($sender) {
             case "info":

@@ -210,7 +210,7 @@ class Element implements \JsonSerializable
         return $this;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return [
             'properties_extra' => $this->properties,

@@ -228,7 +228,7 @@ class Animation implements \JsonSerializable
         return $this->name;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = [
             "anim_type" => $this->animType,

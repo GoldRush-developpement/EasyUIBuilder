@@ -11,6 +11,9 @@ CLAUDE.md
 .DS_Store
 Thumbs.db
 
+# Web
+web/
+
 # PHP
 vendor/
 composer.lock
