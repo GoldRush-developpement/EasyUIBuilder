@@ -46,5 +46,25 @@ class Entry extends RegisterHelper
         $this->register(new BindingExample());
         $this->register(new AnimationExample());
         $this->register(new VariableExample());
+
+        $this->printValidationSummary();
+    }
+
+    private function printValidationSummary(): void
+    {
+        $errors = $this->getTotalErrors();
+        $warnings = $this->getTotalWarnings();
+
+        echo PHP_EOL;
+        if ($errors === 0 && $warnings === 0) {
+            $this->sendLog("Validation complete: no issues found.", "info");
+        } else {
+            if ($errors > 0) {
+                $this->sendLog("Validation complete: {$errors} error(s) found.", "error");
+            }
+            if ($warnings > 0) {
+                $this->sendLog("Validation complete: {$warnings} warning(s).", "warning");
+            }
+        }
     }
 }

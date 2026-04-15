@@ -3,9 +3,38 @@
 namespace refaltor\ui\helpers;
 
 use refaltor\ui\builders\RootBuild;
+use refaltor\ui\validators\JsonValidator;
+use refaltor\ui\validators\ValidationResult;
 
 class RegisterHelper
 {
+    private bool $validationEnabled = true;
+    private bool $strictValidation = false;
+    private int $totalErrors = 0;
+    private int $totalWarnings = 0;
+
+    public function setValidationEnabled(bool $enabled): self
+    {
+        $this->validationEnabled = $enabled;
+        return $this;
+    }
+
+    public function setStrictValidation(bool $strict): self
+    {
+        $this->strictValidation = $strict;
+        return $this;
+    }
+
+    public function getTotalErrors(): int
+    {
+        return $this->totalErrors;
+    }
+
+    public function getTotalWarnings(): int
+    {
+        return $this->totalWarnings;
+    }
+
     public function register(RootBuild $rootBuild): void {
         $namespace = $rootBuild->getNamespace();
         $root = $rootBuild->root();
@@ -13,25 +42,36 @@ class RegisterHelper
         $root->setTitleCondition($rootBuild->titleCondition());
 
         $cheminNomPaquet = $rootBuild->getPathName();
-        $this->sendLog("\033[01;32m===== Début de la création de {$namespace} =====\033[0m".PHP_EOL);
+        $this->sendLog("\033[01;32m===== Building {$namespace} =====\033[0m".PHP_EOL);
         if (!is_dir($cheminNomPaquet)) {
             mkdir($cheminNomPaquet);
             mkdir($cheminNomPaquet."ui/");
-            $this->sendLog("Ressource-pack ". $cheminNomPaquet . " non trouvé, création en cours...", "info");
+            $this->sendLog("Resource pack ". $cheminNomPaquet . " not found, creating...", "info");
         }
 
         $fichierUiDefs = $this->buildUiDefsFile($rootBuild);
         $fichierFormulaireServeur = $this->buildServerFormFile($rootBuild);
 
+        // Validate _ui_defs.json file
+        if ($this->validationEnabled) {
+            $this->runValidationUiDefs($fichierUiDefs, $namespace);
+        }
+
         $this->saveJsonToFile($cheminNomPaquet . "ui/_ui_defs.json", $fichierUiDefs);
-        $this->sendLog("Fichier ". $cheminNomPaquet . "ui/_ui_defs.json" . " prêt", "info");
+        $this->sendLog("File ". $cheminNomPaquet . "ui/_ui_defs.json" . " ready", "info");
         $this->saveJsonToFile($cheminNomPaquet . "ui/server_form.json", $fichierFormulaireServeur);
-        $this->sendLog("Fichier ". $cheminNomPaquet . "ui/server_form.json" . " prêt", "info");
+        $this->sendLog("File ". $cheminNomPaquet . "ui/server_form.json" . " ready", "info");
 
         $fichierUiPersonnalise = json_decode(json_encode($root), true);
+
+        // Validate main UI file
+        if ($this->validationEnabled) {
+            $this->runValidation($fichierUiPersonnalise, $namespace);
+        }
+
         @mkdir($cheminNomPaquet . "ui/custom_ui/");
         $this->saveJsonToFile($cheminNomPaquet . "ui/custom_ui/" . $namespace . ".json", $fichierUiPersonnalise);
-        $this->sendLog(" Dernier fichier ". $cheminNomPaquet . "ui/custom_ui/" . $namespace . ".json" ." prêt, ressource-pack créé", "info");
+        $this->sendLog("File ". $cheminNomPaquet . "ui/custom_ui/" . $namespace . ".json" ." ready, resource pack built", "info");
     }
 
     private function buildUiDefsFile(RootBuild $rootBuild): array {
@@ -45,7 +85,7 @@ class RegisterHelper
             $jsonData = json_decode($jsonData, true);
             $uiDefs = $jsonData["ui_defs"];
 
-            // Vérifier si le fichier UI est déjà inclus
+            // Check if the UI file is already included
             if (!in_array($cheminFichierUi, $uiDefs)) {
                 $uiDefs[] = $cheminFichierUi;
                 $jsonData["ui_defs"] = $uiDefs;
@@ -66,10 +106,10 @@ class RegisterHelper
                 echo"\033[01;34m[NOTICE] {$text}\033[0m".PHP_EOL;
                 break;
             case "warning":
-                echo"\033[01;33m[AVERTISSEMENT] {$text}\033[0m".PHP_EOL;
+                echo"\033[01;33m[WARNING] {$text}\033[0m".PHP_EOL;
                 break;
             case "error":
-                echo"\033[01;31m[ERREUR] {$text}\033[0m".PHP_EOL;
+                echo"\033[01;31m[ERROR] {$text}\033[0m".PHP_EOL;
                 break;
             default:
                 echo $text;
@@ -150,6 +190,38 @@ class RegisterHelper
             }
         }
         return $jsonData;
+    }
+
+    private function runValidation(array $jsonData, string $namespace): void
+    {
+        $validator = new JsonValidator($this->strictValidation);
+        $result = $validator->validate($jsonData);
+        $this->printValidationResult($result, $namespace);
+    }
+
+    private function runValidationUiDefs(array $jsonData, string $namespace): void
+    {
+        $validator = new JsonValidator($this->strictValidation);
+        $result = $validator->validateUiDefs($jsonData);
+        $this->printValidationResult($result, $namespace . '/_ui_defs');
+    }
+
+    private function printValidationResult(ValidationResult $result, string $context): void
+    {
+        $this->totalErrors += $result->getErrorCount();
+        $this->totalWarnings += $result->getWarningCount();
+
+        foreach ($result->getErrors() as $error) {
+            $this->sendLog("[VALIDATION] {$error}", "error");
+        }
+
+        foreach ($result->getWarnings() as $warning) {
+            $this->sendLog("[VALIDATION] {$warning}", "warning");
+        }
+
+        if ($result->isValid() && !$result->hasWarnings()) {
+            $this->sendLog("[VALIDATION] {$context}: no issues found", "info");
+        }
     }
 
     private function saveJsonToFile(string $filename, array $data): void {
