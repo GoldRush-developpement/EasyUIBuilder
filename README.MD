@@ -1,9 +1,9 @@
 ![logo](img/logo.png)
 
-# EasyUIBuilder v2.1.0
+# EasyUIBuilder v2.0.0
 
 ![PHP 8.0+](https://img.shields.io/badge/PHP-8.0%2B-777BB4?logo=php&logoColor=white)
-![Version](https://img.shields.io/badge/version-2.1.0-blue)
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 A PHP library for generating **Minecraft Bedrock Edition JSON UI** files using a fluent builder pattern. Build complex UI screens with clean, readable code — and output Minecraft-compatible resource packs automatically.
@@ -18,6 +18,8 @@ A PHP library for generating **Minecraft Bedrock Edition JSON UI** files using a
 - **Binding system** — global, view, collection and visibility bindings
 - **Animation system** — alpha, offset, size, color, clip, flip_book with 30+ easings
 - **Variable system** — conditional variables for platform/input-specific layouts
+- **Modification system** — non-intrusive edits to vanilla UI elements (insert, remove, replace, swap, move)
+- **JSON validation** — automatic schema validation of generated files against Bedrock UI rules
 - **Utility elements** — CloseButton, PlayerRender (pre-built components)
 - **Color utilities** — predefined colors, RGB, random, pastel, complementary
 - **Anchoring system** — 9-point anchor positioning with offsets
@@ -82,7 +84,7 @@ $root->generateAndSaveJson("ui/my_screen.json");
 | **Grid** | Dynamic grid layout with templates and fill direction |
 | **StackPanel** | Auto-layout container (vertical/horizontal) |
 
-### Extended Elements (v2.1)
+### Extended Elements
 
 | Element | Description |
 |---------|-------------|
@@ -102,13 +104,165 @@ $root->generateAndSaveJson("ui/my_screen.json");
 | **CloseButton** | Pre-built close button extending Bedrock's common dialog |
 | **PlayerRender** | Pre-built player skin viewer |
 
-### Component Systems (v2.1)
+### Component Systems
 
 | Component | Description |
 |-----------|-------------|
 | **Binding** | Data bindings (global, view, collection, visibility) |
 | **Animation** | UI animations with 30+ easings and chaining |
 | **Variable** | Conditional variables for adaptive layouts |
+| **Modification** | Non-intrusive edits to vanilla UI (insert, remove, replace, swap, move) |
+
+---
+
+## Modifications System (v2.0)
+
+The modifications system lets you edit vanilla Bedrock UI elements without replacing entire files. This improves compatibility across resource packs.
+
+### All Operations
+
+| Operation | Description |
+|-----------|-------------|
+| `insert_back` | Insert at end of array |
+| `insert_front` | Insert at start of array |
+| `insert_after` | Insert after a target element |
+| `insert_before` | Insert before a target element |
+| `move_back` | Move target to end of array |
+| `move_front` | Move target to start of array |
+| `move_after` | Move target after another element |
+| `move_before` | Move target before another element |
+| `swap` | Swap two elements |
+| `replace` | Replace an element |
+| `remove` | Remove an element |
+
+### Element-Level Modifications
+
+Add modifications directly to any element:
+
+```php
+use refaltor\ui\components\Modification;
+
+$panel = Panel::create("my_panel")
+    ->addModification(
+        Modification::insertBack(Modification::ARRAY_CONTROLS)
+            ->setValue([
+                ["new_child@common.empty_panel" => []]
+            ])
+    )
+    ->addModification(
+        Modification::remove(Modification::ARRAY_BINDINGS, [
+            "binding_name" => "#obsolete_binding"
+        ])
+    );
+```
+
+### Vanilla Element Modifications
+
+Target vanilla UI elements using path syntax on the Root builder:
+
+```php
+use refaltor\ui\components\Modification;
+
+$root = Root::create("my_namespace");
+
+// Hide the HUD title when text matches a value
+$root->modifyVanillaElement("hud_title_text/title_frame/title", [
+    Modification::insertBack(Modification::ARRAY_BINDINGS)
+        ->setValue([
+            [
+                "binding_type" => "view",
+                "source_property_name" => "(not (#text = 'hidden'))",
+                "target_property_name" => "#visible",
+            ]
+        ]),
+]);
+
+// Add a custom element to the HUD screen
+$root->modifyVanillaElement("hud_screen", [
+    Modification::insertBack(Modification::ARRAY_CONTROLS)
+        ->setValue([
+            ["my_element@my_namespace.my_panel" => []]
+        ]),
+]);
+
+// Replace a binding in a vanilla element
+$root->modifyVanillaElement("start_screen/play_button", [
+    Modification::replace(Modification::ARRAY_BINDINGS, [
+        "binding_name" => "#old_binding"
+    ])->setValue([
+        "binding_name" => "#new_binding",
+        "binding_type" => "global",
+    ]),
+]);
+
+// Swap two bindings
+$root->modifyVanillaElement("inventory_screen/root_panel", [
+    Modification::swap(
+        Modification::ARRAY_BINDINGS,
+        ["binding_name" => "#binding_a"],
+        ["binding_name" => "#binding_b"]
+    ),
+]);
+```
+
+### Available Target Arrays
+
+Use the constants for `array_name`:
+
+| Constant | Value |
+|----------|-------|
+| `Modification::ARRAY_CONTROLS` | `controls` |
+| `Modification::ARRAY_BINDINGS` | `bindings` |
+| `Modification::ARRAY_VARIABLES` | `variables` |
+| `Modification::ARRAY_ANIMS` | `anims` |
+| `Modification::ARRAY_BUTTON_MAPPINGS` | `button_mappings` |
+
+---
+
+## JSON Validation (v2.0)
+
+Generated JSON files are automatically validated against Bedrock UI rules before writing. The validator checks:
+
+- Element types (14 valid Bedrock types)
+- Property names per element type (strict mode)
+- Anchor values (9-point system)
+- Size/offset format and color ranges
+- Binding structure (type, required fields per binding type)
+- Animation types (9 types), easings (32 values), duration, from/to
+- Variable structure (`requires` field, values)
+- Modification operations (11 types) and required fields
+- `_ui_defs.json` structure and duplicates
+- Custom renderer names (20 known renderers)
+
+### Configuration
+
+```php
+$entry = new Entry();
+
+// Disable validation entirely
+$entry->setValidationEnabled(false);
+
+// Enable strict mode (warns about unknown properties)
+$entry->setStrictValidation(true);
+```
+
+### Standalone Usage
+
+```php
+use refaltor\ui\validators\JsonValidator;
+
+$validator = new JsonValidator(strict: true);
+$result = $validator->validate($jsonData);
+
+foreach ($result->getErrors() as $error) {
+    echo "ERROR: $error\n";
+}
+foreach ($result->getWarnings() as $warning) {
+    echo "WARNING: $warning\n";
+}
+
+echo $result->isValid() ? "Valid!" : "Invalid.";
+```
 
 ---
 
@@ -165,6 +319,7 @@ The `tests/` directory contains complete examples for every feature:
 | [`BindingExample.php`](tests/BindingExample.php) | Global, view, collection bindings, visibility |
 | [`AnimationExample.php`](tests/AnimationExample.php) | Fade, slide, pulse, bounce, elastic, chain, clip |
 | [`VariableExample.php`](tests/VariableExample.php) | Platform, input-mode, screen-size conditionals |
+| [`ModificationExample.php`](tests/ModificationExample.php) | All modification operations, vanilla element targeting |
 
 ---
 
@@ -178,6 +333,37 @@ Generated files are output to `resources/pack_example/`:
 - `ui/_ui_defs.json` — UI definitions registry
 - `ui/server_form.json` — Server form configuration
 - `ui/custom_ui/<namespace>.json` — Individual UI screen files
+
+Validation results are displayed during generation:
+
+```
+===== Building my_screen =====
+[INFO] [VALIDATION] my_screen/_ui_defs: no issues found
+[INFO] File ./resources/pack_example/ui/_ui_defs.json ready
+[INFO] File ./resources/pack_example/ui/server_form.json ready
+[INFO] [VALIDATION] my_screen: no issues found
+[INFO] File ./resources/pack_example/ui/custom_ui/my_screen.json ready, resource pack built
+
+[INFO] Validation complete: no issues found.
+```
+
+---
+
+## Changelog
+
+### v2.0.0
+- **Modifications system** — 11 operations to edit vanilla UI elements non-intrusively
+- **Vanilla element targeting** — path syntax (`hud_screen/hud_title_text`) via `Root::modifyVanillaElement()`
+- **JSON validation** — automatic schema validation with `JsonValidator` (types, bindings, animations, modifications)
+- **Strict validation mode** — detect unknown properties per element type
+- **English log output** — all build/validation messages in English
+- **`JSON_UNESCAPED_SLASHES`** — proper path output in generated JSON
+
+### v1.1.0
+- **JSON schema validation** — initial validation system
+
+### v1.0.0
+- Initial release with 14 element types, bindings, animations, variables
 
 ---
 
