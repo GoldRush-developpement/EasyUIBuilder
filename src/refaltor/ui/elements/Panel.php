@@ -20,7 +20,6 @@ class Panel extends Element implements \JsonSerializable
     private bool $disableAnimFastForward = false;
     private string $animationResetName = '';
     private bool $ignored = false;
-    private array $modifications = [];
     private array $gridPosition = [0, 0];
     private int $collectionIndex = 0;
 
@@ -90,6 +89,9 @@ class Panel extends Element implements \JsonSerializable
         }
         if (!empty($dataParent['anims'])) {
             $element[$name]["anims"] = array_merge($element[$name]["anims"], $dataParent['anims']);
+        }
+        if (!empty($dataParent['modifications'])) {
+            $element[$name]["modifications"] = $dataParent['modifications'];
         }
 
         return $element;

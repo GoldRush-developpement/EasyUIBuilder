@@ -22,6 +22,7 @@ use refaltor\roots\CustomRenderExample;
 use refaltor\roots\BindingExample;
 use refaltor\roots\AnimationExample;
 use refaltor\roots\VariableExample;
+use refaltor\roots\ModificationExample;
 use refaltor\ui\helpers\RegisterHelper;
 
 class Entry extends RegisterHelper
@@ -46,6 +47,7 @@ class Entry extends RegisterHelper
         $this->register(new BindingExample());
         $this->register(new AnimationExample());
         $this->register(new VariableExample());
+        $this->register(new ModificationExample());
 
         $this->printValidationSummary();
     }

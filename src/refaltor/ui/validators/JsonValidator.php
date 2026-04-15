@@ -97,6 +97,16 @@ class JsonValidator
         'not_gaze', 'gamepad_and_not_gaze', 'any',
     ];
 
+    const VALID_MODIFICATION_OPERATIONS = [
+        'insert_back', 'insert_front', 'insert_after', 'insert_before',
+        'move_back', 'move_front', 'move_after', 'move_before',
+        'swap', 'replace', 'remove',
+    ];
+
+    const VALID_MODIFICATION_ARRAYS = [
+        'controls', 'bindings', 'variables', 'anims', 'button_mappings',
+    ];
+
     /** Common properties shared by all element types */
     const COMMON_PROPERTIES = [
         'type', 'size', 'offset', 'anchor_from', 'anchor_to', 'layer',
@@ -242,6 +252,9 @@ class JsonValidator
                 $this->validateAnimation($value, $elementResult);
             } elseif (isset($value['type'])) {
                 $this->validateElement($key, $value, $elementResult);
+            } elseif (isset($value['modifications'])) {
+                // Vanilla element modification (path syntax)
+                $this->validateModifications($value['modifications'], $elementResult);
             }
 
             $result->merge($elementResult);
@@ -327,6 +340,9 @@ class JsonValidator
         }
         if (isset($data['controls'])) {
             $this->validateControls($data['controls'], $result);
+        }
+        if (isset($data['modifications'])) {
+            $this->validateModifications($data['modifications'], $result);
         }
 
         // Type-specific validations
@@ -661,6 +677,91 @@ class JsonValidator
         if (in_array($animType, ['flip_book', 'aseprite_flip_book'])) {
             if (!isset($data['fps']) || !is_numeric($data['fps']) || $data['fps'] <= 0) {
                 $result->addWarning("flip_book animation should have a positive 'fps' value.");
+            }
+        }
+    }
+
+    /**
+     * Validates a modifications array.
+     */
+    private function validateModifications(array $modifications, ValidationResult $result): void
+    {
+        foreach ($modifications as $index => $mod) {
+            if (!is_array($mod)) {
+                $result->addError("Modification #{$index} must be an associative array.");
+                continue;
+            }
+
+            if (!isset($mod['operation'])) {
+                $result->addError("Modification #{$index} requires an 'operation' field.");
+                continue;
+            }
+
+            $this->validateEnum($mod['operation'], self::VALID_MODIFICATION_OPERATIONS, "modification #{$index} operation", $result);
+            $op = $mod['operation'];
+
+            if (isset($mod['array_name'])) {
+                $this->validateEnum($mod['array_name'], self::VALID_MODIFICATION_ARRAYS, "modification #{$index} array_name", $result);
+            }
+
+            // insert_back/insert_front require array_name
+            if (in_array($op, ['insert_back', 'insert_front']) && !isset($mod['array_name'])) {
+                $result->addError("Modification #{$index} ('{$op}') requires 'array_name'.");
+            }
+
+            // insert_after/insert_before require either control_name or (array_name + where)
+            if (in_array($op, ['insert_after', 'insert_before'])) {
+                if (!isset($mod['control_name']) && (!isset($mod['array_name']) || !isset($mod['where']))) {
+                    $result->addError("Modification #{$index} ('{$op}') requires either 'control_name' or both 'array_name' and 'where'.");
+                }
+            }
+
+            // insert operations require value
+            if (in_array($op, ['insert_back', 'insert_front', 'insert_after', 'insert_before'])) {
+                if (!isset($mod['value'])) {
+                    $result->addError("Modification #{$index} ('{$op}') requires a 'value' field.");
+                }
+            }
+
+            // remove requires array_name + where
+            if ($op === 'remove') {
+                if (!isset($mod['array_name'])) {
+                    $result->addError("Modification #{$index} ('remove') requires 'array_name'.");
+                }
+                if (!isset($mod['where'])) {
+                    $result->addError("Modification #{$index} ('remove') requires 'where'.");
+                }
+            }
+
+            // replace requires array_name + where + value
+            if ($op === 'replace') {
+                if (!isset($mod['array_name'])) {
+                    $result->addError("Modification #{$index} ('replace') requires 'array_name'.");
+                }
+                if (!isset($mod['where'])) {
+                    $result->addError("Modification #{$index} ('replace') requires 'where'.");
+                }
+                if (!isset($mod['value'])) {
+                    $result->addError("Modification #{$index} ('replace') requires 'value'.");
+                }
+            }
+
+            // swap requires array_name + where + target
+            if ($op === 'swap') {
+                if (!isset($mod['array_name'])) {
+                    $result->addError("Modification #{$index} ('swap') requires 'array_name'.");
+                }
+                if (!isset($mod['where'])) {
+                    $result->addError("Modification #{$index} ('swap') requires 'where'.");
+                }
+                if (!isset($mod['target'])) {
+                    $result->addError("Modification #{$index} ('swap') requires 'target'.");
+                }
+            }
+
+            // move_after/move_before with where require target
+            if (in_array($op, ['move_after', 'move_before']) && isset($mod['where']) && !isset($mod['target'])) {
+                $result->addError("Modification #{$index} ('{$op}') with 'where' also requires 'target'.");
             }
         }
     }

@@ -5,6 +5,7 @@ namespace refaltor\ui\elements;
 use refaltor\ui\builders\Root;
 use refaltor\ui\components\Animation;
 use refaltor\ui\components\Binding;
+use refaltor\ui\components\Modification;
 use refaltor\ui\components\Variable;
 
 class Element implements \JsonSerializable
@@ -14,6 +15,7 @@ class Element implements \JsonSerializable
     protected array $bindings = [];
     protected array $variables = [];
     protected array $anims = [];
+    protected array $modifications = [];
 
     const ANCHOR_TOP_LEFT = 'top_left';
     const ANCHOR_TOP_MIDDLE = 'top_middle';
@@ -180,6 +182,18 @@ class Element implements \JsonSerializable
         return $this;
     }
 
+    public function addModification(Modification $modification): self {
+        $this->modifications[] = $modification;
+        return $this;
+    }
+
+    public function addModifications(array $modifications): self {
+        foreach ($modifications as $modification) {
+            $this->modifications[] = $modification;
+        }
+        return $this;
+    }
+
     public function setPropertyBag(array $propertyBag): self {
         $this->properties['property_bag'] = $propertyBag;
         return $this;
@@ -218,6 +232,7 @@ class Element implements \JsonSerializable
             'bindings' => $this->bindings,
             'variables' => $this->variables,
             'anims' => $this->anims,
+            'modifications' => $this->modifications,
         ];
     }
 
