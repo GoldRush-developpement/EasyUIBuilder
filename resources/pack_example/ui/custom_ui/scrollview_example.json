@@ -30,7 +30,7 @@
             {
                 "scroll_bg": {
                     "type": "image",
-                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "texture": "textures/ui/dialog_background_opaque",
                     "allow_debug_missing_texture": true,
                     "uv": [
                         0,
@@ -609,9 +609,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.9333333333333333,
-                                                            0.6470588235294118,
-                                                            0.9882352941176471
+                                                            0.596078431372549,
+                                                            0.5882352941176471,
+                                                            0.6823529411764706
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -657,9 +657,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.7254901960784313,
-                                                            0.7647058823529411,
-                                                            0.7843137254901961
+                                                            0.7215686274509804,
+                                                            0.596078431372549,
+                                                            0.8862745098039215
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -705,9 +705,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.7843137254901961,
-                                                            0.6313725490196078,
-                                                            0.6470588235294118
+                                                            0.807843137254902,
+                                                            0.615686274509804,
+                                                            0.8627450980392157
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -753,9 +753,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.6352941176470588,
-                                                            0.8156862745098039,
-                                                            0.8627450980392157
+                                                            0.9215686274509803,
+                                                            0.6823529411764706,
+                                                            0.996078431372549
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -802,8 +802,8 @@
                                                         "shadow": true,
                                                         "color": [
                                                             0.9450980392156862,
-                                                            0.9176470588235294,
-                                                            0.6941176470588235
+                                                            0.8627450980392157,
+                                                            0.7568627450980392
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -849,9 +849,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.7843137254901961,
-                                                            0.9725490196078431,
-                                                            0.9137254901960784
+                                                            0.6,
+                                                            0.9254901960784314,
+                                                            0.9215686274509803
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -897,9 +897,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.7529411764705882,
-                                                            0.7647058823529411,
-                                                            0.8549019607843137
+                                                            0.6941176470588235,
+                                                            0.8588235294117647,
+                                                            0.6666666666666666
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -945,9 +945,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.7372549019607844,
-                                                            0.6666666666666666,
-                                                            0.8509803921568627
+                                                            0.5882352941176471,
+                                                            0.7843137254901961,
+                                                            1
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -994,8 +994,8 @@
                                                         "shadow": true,
                                                         "color": [
                                                             0.7176470588235294,
-                                                            0.7490196078431373,
-                                                            0.8784313725490196
+                                                            0.9333333333333333,
+                                                            0.996078431372549
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"
@@ -1041,9 +1041,9 @@
                                                         "font_scale_factor": 1,
                                                         "shadow": true,
                                                         "color": [
-                                                            0.8313725490196079,
-                                                            0.6509803921568628,
-                                                            0.6980392156862745
+                                                            0.8470588235294118,
+                                                            0.9333333333333333,
+                                                            0.796078431372549
                                                         ],
                                                         "anchor_from": "center",
                                                         "anchor_to": "center"

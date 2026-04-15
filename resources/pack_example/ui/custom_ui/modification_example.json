@@ -1,0 +1,340 @@
+{
+    "namespace": "modification_example",
+    "modified_panel": {
+        "type": "panel",
+        "visible": true,
+        "enabled": true,
+        "layer": 0,
+        "alpha": 1,
+        "propagate_alpha": false,
+        "clips_children": false,
+        "allow_clipping": true,
+        "clip_offset": [
+            0,
+            0
+        ],
+        "clip_state_change_event": "",
+        "enable_scissor_test": false,
+        "property_bag": [],
+        "selected": false,
+        "use_child_anchors": false,
+        "anims": [],
+        "disable_anim_fast_forward": false,
+        "animation_reset_name": "",
+        "variables": [],
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "binding_modified_panel": {
+                    "type": "panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        200,
+                        100
+                    ],
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "bindings": [
+                        {
+                            "binding_type": "global",
+                            "binding_name": "#title_text"
+                        }
+                    ],
+                    "modifications": [
+                        {
+                            "array_name": "bindings",
+                            "operation": "insert_back",
+                            "value": [
+                                {
+                                    "binding_type": "view",
+                                    "source_property_name": "(not (#title_text = ''))",
+                                    "target_property_name": "#visible"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "cleanup_panel": {
+                    "type": "panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        100,
+                        100
+                    ],
+                    "modifications": [
+                        {
+                            "array_name": "bindings",
+                            "operation": "remove",
+                            "where": {
+                                "binding_name": "#obsolete_binding"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "replace_panel": {
+                    "type": "panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        100,
+                        100
+                    ],
+                    "modifications": [
+                        {
+                            "array_name": "bindings",
+                            "operation": "replace",
+                            "where": {
+                                "binding_name": "#old_binding"
+                            },
+                            "value": {
+                                "binding_name": "#new_binding",
+                                "binding_type": "global"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "swap_panel": {
+                    "type": "panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        100,
+                        100
+                    ],
+                    "modifications": [
+                        {
+                            "array_name": "bindings",
+                            "operation": "swap",
+                            "where": {
+                                "binding_name": "#binding_a"
+                            },
+                            "target": {
+                                "binding_name": "#binding_b"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "ordered_panel": {
+                    "type": "panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        200,
+                        200
+                    ],
+                    "modifications": [
+                        {
+                            "operation": "insert_after",
+                            "control_name": "existing_control",
+                            "value": [
+                                {
+                                    "new_control@common.empty_panel": []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "reorder_panel": {
+                    "type": "panel",
+                    "visible": true,
+                    "enabled": true,
+                    "layer": 0,
+                    "alpha": 1,
+                    "propagate_alpha": false,
+                    "clips_children": false,
+                    "allow_clipping": true,
+                    "clip_offset": [
+                        0,
+                        0
+                    ],
+                    "clip_state_change_event": "",
+                    "enable_scissor_test": false,
+                    "property_bag": [],
+                    "selected": false,
+                    "use_child_anchors": false,
+                    "anims": [],
+                    "disable_anim_fast_forward": false,
+                    "animation_reset_name": "",
+                    "variables": [],
+                    "size": [
+                        200,
+                        200
+                    ],
+                    "modifications": [
+                        {
+                            "array_name": "bindings",
+                            "operation": "move_front",
+                            "where": {
+                                "binding_name": "#important_binding"
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "injected_label@common.empty_panel": []
+                    }
+                ]
+            },
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "priority_label@common.empty_panel": []
+                    }
+                ]
+            }
+        ]
+    },
+    "hud_title_text/title_frame/title": {
+        "modifications": [
+            {
+                "array_name": "bindings",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "binding_type": "view",
+                        "source_property_name": "(not (#text = 'hidden_title'))",
+                        "target_property_name": "#visible"
+                    }
+                ]
+            }
+        ]
+    },
+    "hud_screen": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_back",
+                "value": [
+                    {
+                        "custom_hud_element@.modified_panel": []
+                    }
+                ]
+            }
+        ]
+    },
+    "start_screen/play_button": {
+        "modifications": [
+            {
+                "array_name": "bindings",
+                "operation": "remove",
+                "where": {
+                    "binding_name": "#some_vanilla_binding"
+                }
+            }
+        ]
+    }
+}

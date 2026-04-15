@@ -30,7 +30,7 @@
             {
                 "bg_image": {
                     "type": "image",
-                    "texture": "textures\/ui\/background",
+                    "texture": "textures/ui/background",
                     "allow_debug_missing_texture": true,
                     "uv": [
                         0,

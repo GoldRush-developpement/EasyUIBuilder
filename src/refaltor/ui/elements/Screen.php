@@ -144,6 +144,10 @@ class Screen extends Element implements \JsonSerializable
             $element[$name]["controls"][] = $control;
         }
 
+        if (!empty($dataParent['modifications'])) {
+            $element[$name]["modifications"] = $dataParent['modifications'];
+        }
+
         return $element;
     }
 }

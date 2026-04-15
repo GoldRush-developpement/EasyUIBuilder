@@ -1,7 +1,7 @@
 {
     "name": "refaltor/easy-ui-builder",
     "description": "PHP library for generating Minecraft Bedrock Edition JSON UI files using a fluent builder pattern",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "type": "library",
     "license": "MIT",
     "keywords": [

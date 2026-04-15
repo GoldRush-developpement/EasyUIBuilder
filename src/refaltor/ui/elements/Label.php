@@ -160,6 +160,9 @@ class Label extends Element implements JsonSerializable
         if (!empty($dataParent['anims'])) {
             $element[$name]["anims"] = $dataParent['anims'];
         }
+        if (!empty($dataParent['modifications'])) {
+            $element[$name]["modifications"] = $dataParent['modifications'];
+        }
 
         return $element;
     }

@@ -3,6 +3,7 @@
 namespace refaltor\ui\builders;
 
 use refaltor\ui\components\Animation;
+use refaltor\ui\components\Modification;
 use refaltor\ui\elements\Element;
 
 class Root implements \JsonSerializable
@@ -12,6 +13,7 @@ class Root implements \JsonSerializable
     public string $namespace;
     private string $title = "";
     private array $animations = [];
+    private array $vanillaModifications = [];
 
     public function __construct(string $namespace) {
         $this->setNamespace($namespace);
@@ -56,6 +58,24 @@ class Root implements \JsonSerializable
         return $this;
     }
 
+    /**
+     * Add modifications targeting a vanilla UI element using the path syntax.
+     * Example: "hud_title_text/title_frame/title" targets a nested vanilla element.
+     *
+     * @param string $elementPath The vanilla element path (e.g. "hud_screen/hud_title_text")
+     * @param Modification[] $modifications Array of Modification objects
+     */
+    public function modifyVanillaElement(string $elementPath, array $modifications): self
+    {
+        if (!isset($this->vanillaModifications[$elementPath])) {
+            $this->vanillaModifications[$elementPath] = [];
+        }
+        foreach ($modifications as $modification) {
+            $this->vanillaModifications[$elementPath][] = $modification;
+        }
+        return $this;
+    }
+
     public function jsonSerialize(): mixed
     {
         $root = ['namespace' => $this->namespace];
@@ -80,6 +100,12 @@ class Root implements \JsonSerializable
             foreach ($serialized as $animName => $animData) {
                 $root[$animName] = $animData;
             }
+        }
+
+        foreach ($this->vanillaModifications as $elementPath => $modifications) {
+            $root[$elementPath] = [
+                'modifications' => array_map(fn($m) => $m->jsonSerialize(), $modifications),
+            ];
         }
 
         return $root;

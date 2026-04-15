@@ -30,7 +30,7 @@
             {
                 "input_bg": {
                     "type": "image",
-                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "texture": "textures/ui/dialog_background_opaque",
                     "allow_debug_missing_texture": true,
                     "uv": [
                         0,
@@ -211,7 +211,7 @@
                         {
                             "gesture_label": {
                                 "type": "label",
-                                "text": "Touch\/Drag Area",
+                                "text": "Touch/Drag Area",
                                 "font_size": "normal",
                                 "font_type": "default",
                                 "font_scale_factor": 1,

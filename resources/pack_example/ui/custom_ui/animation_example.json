@@ -33,7 +33,7 @@
             {
                 "anim_bg": {
                     "type": "image",
-                    "texture": "textures\/ui\/dialog_background_opaque",
+                    "texture": "textures/ui/dialog_background_opaque",
                     "allow_debug_missing_texture": true,
                     "uv": [
                         0,
@@ -275,7 +275,7 @@
             {
                 "progress_bg": {
                     "type": "image",
-                    "texture": "textures\/ui\/loading_bar_empty",
+                    "texture": "textures/ui/loading_bar_empty",
                     "allow_debug_missing_texture": true,
                     "uv": [
                         0,
@@ -321,7 +321,7 @@
             {
                 "progress_fill": {
                     "type": "image",
-                    "texture": "textures\/ui\/loading_bar_full",
+                    "texture": "textures/ui/loading_bar_full",
                     "allow_debug_missing_texture": true,
                     "uv": [
                         0,
